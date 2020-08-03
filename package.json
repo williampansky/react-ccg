@@ -2,6 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "airtable": "node -r esm airtable.js",
     "build:game-local": "yarn && yarn workspace @ccg/game build",
     "start:app-multi": "yarn && yarn workspace @ccg/app-multi-comps start",
     "start:game-local": "yarn && yarn workspace @ccg/game start",
@@ -29,6 +30,7 @@
     ]
   },
   "devDependencies": {
+    "airtable-node": "^0.1.20",
     "babel-eslint": "10.0.3",
     "eslint": "6.8.0",
     "eslint-config-prettier": "^6.9.0",
@@ -39,6 +41,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
+    "esm": "^3.2.25",
     "husky": "^4.0.6",
     "jest-prop-type-error": "^1.1.0",
     "lerna": "^3.20.2",

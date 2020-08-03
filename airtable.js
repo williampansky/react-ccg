@@ -1,6 +1,6 @@
 /* eslint-disable array-callback-return */
-import GAME_CONFIG from './packages/config/src/game.config';
 require('dotenv').config({ path: './.env.local' });
+const { CONFIG } = require('./packages/config');
 const fs = require('fs');
 const Airtable = require('airtable-node');
 
@@ -27,7 +27,7 @@ function parseCardEntourage(string) {
 }
 
 function parseCardMechanics(array) {
-  if (!GAME_CONFIG.debugData.enableMechanics) return '';
+  if (!CONFIG.DEBUG_DATA_CONFIG.enableMechanics) return '';
   return array ? array : [];
 }
 
@@ -36,7 +36,7 @@ function parseCardName(string1, string2) {
 }
 
 function parseCardText(string) {
-  if (!GAME_CONFIG.debugData.enableText) return '';
+  if (!CONFIG.DEBUG_DATA_CONFIG.enableText) return '';
   return string;
 }
 
@@ -67,7 +67,7 @@ base
 
     const constants = JSON.stringify(Object.assign({}, ...map));
     fs.writeFileSync('./packages/data/src/constants.json', constants);
-    fs.writeFileSync('./packages/server/src/data/constants.json', constants);
+    // fs.writeFileSync('./packages/server/src/data/constants.json', constants);
   });
 
 // MECHANICS
@@ -98,7 +98,7 @@ base
 
     const mechanics = JSON.stringify(Object.assign({}, ...map));
     fs.writeFileSync('./packages/data/src/mechanics.json', mechanics);
-    fs.writeFileSync('./packages/server/src/data/mechanics.json', mechanics);
+    // fs.writeFileSync('./packages/server/src/data/mechanics.json', mechanics);
   });
 
 // HEROS
@@ -148,7 +148,7 @@ base
 
     const heros = JSON.stringify(Object.assign({}, ...map));
     fs.writeFileSync('./packages/data/src/heros.json', heros);
-    fs.writeFileSync('./packages/server/src/data/heros.json', heros);
+    // fs.writeFileSync('./packages/server/src/data/heros.json', heros);
   });
 
 // ABILITIES
@@ -219,7 +219,7 @@ base
 
     const abilities = JSON.stringify(Object.assign({}, ...map));
     fs.writeFileSync('./packages/data/src/abilities.json', abilities);
-    fs.writeFileSync('./packages/server/src/data/abilities.json', abilities);
+    // fs.writeFileSync('./packages/server/src/data/abilities.json', abilities);
   });
 
 // CORE
@@ -303,7 +303,7 @@ base
 
     const game = JSON.stringify(Object.assign({}, ...map));
     fs.writeFileSync('./packages/data/src/cards.game.json', game);
-    fs.writeFileSync('./packages/server/src/data/cards.game.json', game);
+    // fs.writeFileSync('./packages/server/src/data/cards.game.json', game);
   });
 
 // CORE
@@ -387,7 +387,7 @@ base
 
     const core = JSON.stringify(Object.assign({}, ...map));
     fs.writeFileSync('./packages/data/src/cards.core.json', core);
-    fs.writeFileSync('./packages/server/src/data/cards.core.json', core);
+    // fs.writeFileSync('./packages/server/src/data/cards.core.json', core);
   });
 
 // PRIME
@@ -471,7 +471,7 @@ base
 
     const prime = JSON.stringify(Object.assign({}, ...map));
     fs.writeFileSync('./packages/data/src/cards.prime.json', prime);
-    fs.writeFileSync('./packages/server/src/data/cards.prime.json', prime);
+    // fs.writeFileSync('./packages/server/src/data/cards.prime.json', prime);
   });
 
 // ENTOURAGE
@@ -555,8 +555,8 @@ base
 
     const entourage = JSON.stringify(Object.assign({}, ...map));
     fs.writeFileSync('./packages/data/src/cards.entourage.json', entourage);
-    fs.writeFileSync(
-      './packages/server/src/data/cards.entourage.json',
-      entourage
-    );
+    // fs.writeFileSync(
+    //   './packages/server/src/data/cards.entourage.json',
+    //   entourage
+    // );
   });

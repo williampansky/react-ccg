@@ -18,7 +18,11 @@
     "packages/apps/game/src",
     "packages/apps/server/src",
     "packages/components/src",
-    "packages/enums/src"
+    "packages/config/src",
+    "packages/data/src",
+    "packages/enums/src",
+    "packages/hooks/src",
+    "packages/utils/src"
   ],
   "exclude": []
 }
