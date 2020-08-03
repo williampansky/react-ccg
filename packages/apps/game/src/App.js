@@ -7,12 +7,13 @@ import './App.css';
 import { DatePicker } from 'antd';
 
 import { ABILITIES } from '@ccg/data';
+import { CONFIG } from '@ccg/config';
 // import { TYPE } from '@ccg/enums';
 import { CompOne, CompTwo } from '@ccg/components';
 
 function App(props) {
   // console.log(CompOne);
-  console.log(ABILITIES);
+  console.log(CONFIG.AIRTABLE_CONFIG);
   return (
     <div className="App">
       <header className="App-header">

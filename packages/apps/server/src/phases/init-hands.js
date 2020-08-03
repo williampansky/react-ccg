@@ -1,4 +1,5 @@
 import { ActivePlayers } from 'boardgame.io/core';
+import { CONFIG } from '@ccg/config';
 import counts from '../state/counts';
 import drawCard, { drawSpecificCard } from '../moves/draw-card';
 import getCardByID from '../utils/get-card-by-id';
@@ -17,12 +18,13 @@ function getStartingHand(cards, discard) {
 
 export default {
   onBegin: (G, ctx) => {
+    const { MATCH_CONFIG } = CONFIG;
     const FIRST_PLAYER = G.turnOrder['0'];
     const SECOND_PLAYER = G.turnOrder['1'];
 
     logMessage(G, ctx, 'matchStart');
 
-    if (G.serverConfig.matchConfig.enableInitHandsStage) {
+    if (MATCH_CONFIG.enableInitHandsStage) {
       // get the first few cards from each player's deck
       G.initHandsSelection[FIRST_PLAYER].cards = G.players[FIRST_PLAYER].deck
         .splice(0, 3)
@@ -50,7 +52,8 @@ export default {
   },
 
   onEnd: (G, ctx) => {
-    if (G.serverConfig.matchConfig.enableInitHandsStage) {
+    const { MATCH_CONFIG } = CONFIG;
+    if (MATCH_CONFIG.enableInitHandsStage) {
       const FIRST_PLAYER = G.turnOrder['0'];
       const SECOND_PLAYER = G.turnOrder['1'];
 
