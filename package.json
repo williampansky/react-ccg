@@ -17,7 +17,8 @@
       "packages/data",
       "packages/enums",
       "packages/server",
-      "packages/storybook"
+      "packages/storybook",
+      "packages/utils"
     ],
     "nohoist": [
       "packages/apps/**/webpack-dev-server",

@@ -1,6 +1,6 @@
 import { generateNameHTML } from './html.log';
 import { TYPE } from '@ccg/enums';
-import exists from '../utils/element-exists';
+import { exists } from '@ccg/utils';
 
 const logPlayerAttackedMinionMessage = (
   G,

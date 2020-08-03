@@ -1,0 +1,12 @@
+{
+  "name": "@ccg/utils",
+  "version": "1.0.0",
+  "homepage": "https://react-workspaces.github.io/react-workspaces-playground",
+  "main": "index.js",
+  "main:src": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "cross-env": "6.0.3"
+  },
+  "license": "MIT"
+}
