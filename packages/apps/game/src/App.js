@@ -6,12 +6,13 @@ import './App.css';
 
 import { DatePicker } from 'antd';
 
-import { TYPE } from '@ccg/enums';
+import { ABILITIES } from '@ccg/data';
+// import { TYPE } from '@ccg/enums';
 import { CompOne, CompTwo } from '@ccg/components';
 
 function App(props) {
   // console.log(CompOne);
-  console.log(TYPE);
+  console.log(ABILITIES);
   return (
     <div className="App">
       <header className="App-header">
