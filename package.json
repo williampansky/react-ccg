@@ -2,6 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "build:game-local": "yarn && yarn workspace @ccg/game build",
     "start:app-multi": "yarn && yarn workspace @ccg/app-multi-comps start",
     "start:game-local": "yarn && yarn workspace @ccg/game start",
     "start:storybook": "yarn && yarn workspace @ccg/storybook storybook",

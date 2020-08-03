@@ -1,4 +1,4 @@
-import deckInfo from '@/state/deck-info';
+import deckInfo from '../state/deck-info';
 import players from '../state/players';
 import playerHero from '../state/player-hero';
 import playerName from '../state/player-name';

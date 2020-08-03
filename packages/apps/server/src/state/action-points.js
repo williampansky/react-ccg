@@ -1,5 +1,5 @@
 import { add, subtract } from 'mathjs';
-import limitNumberWithinRange from '@/utils/range-limit';
+import limitNumberWithinRange from '../utils/range-limit';
 
 const actionPoints = {
   __DATA_MODEL: {
