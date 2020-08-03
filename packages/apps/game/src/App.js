@@ -13,7 +13,7 @@ import { CompOne, CompTwo } from '@ccg/components';
 
 function App(props) {
   // console.log(CompOne);
-  console.log(CONFIG.AIRTABLE_CONFIG);
+  console.log(CONFIG);
   return (
     <div className="App">
       <header className="App-header">
