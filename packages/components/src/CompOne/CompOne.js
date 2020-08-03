@@ -1,16 +1,13 @@
-import React from 'react';
-import './CompOne.css';
-import { TYPE } from '@ccg/enums';
+// import React from 'react';
+// import './CompOne.css';
+// import { TYPE } from '@ccg/enums';
 
-const CompOne = () => (
-  <div className="Comp">
-    <h3>
-      <span role="img" aria-label="React Logo">
-        ⚛️
-      </span>
-      {TYPE['SPELL']}
-    </h3>
-  </div>
-);
+const CompOne = {
+  ITEM: '%TYPE_ITEM%',
+  MINION: '%TYPE_MINION%',
+  NONE: '%TYPE_NONE%',
+  SPELL: '%TYPE_SPELL%',
+  WEAPON: '%TYPE_WEAPON%'
+};
 
 export default CompOne;

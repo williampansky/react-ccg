@@ -2,6 +2,7 @@ import React from 'react';
 import { Client as BoardgameClient } from 'boardgame.io/react';
 import { Local } from 'boardgame.io/multiplayer';
 import { ReactCCG } from '@ccg/server';
+import AppTest from './App';
 // import { GAME_CONFIG } from '@ccg/config';
 // import GameWrapper from './game-components/GameWrapper';
 // import GameLoader from './components/game-loader';
@@ -13,7 +14,7 @@ const REDUX_DEVTOOLS =
 
 const Client = BoardgameClient({
   game: ReactCCG,
-  board: null,
+  board: AppTest,
   // loading: GameLoader,
   debug: true,
   multiplayer: Local(),

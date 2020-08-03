@@ -2,8 +2,8 @@
   "name": "@ccg/enums",
   "version": "1.0.0",
   "homepage": "https://react-workspaces.github.io/react-workspaces-playground",
-  "main": "src/index.js",
-  "main:src": "src/index.js",
+  "main": "index.js",
+  "main:src": "index.js",
   "dependencies": {},
   "devDependencies": {
     "cross-env": "6.0.3"
