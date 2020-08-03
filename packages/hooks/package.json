@@ -1,0 +1,15 @@
+{
+  "name": "@ccg/hooks",
+  "version": "1.0.0",
+  "homepage": "https://react-workspaces.github.io/react-workspaces-playground",
+  "main": "index.js",
+  "main:src": "index.js",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-responsive": "^8.1.0"
+  },
+  "devDependencies": {
+    "cross-env": "6.0.3"
+  },
+  "license": "MIT"
+}

@@ -16,6 +16,7 @@
       "packages/components",
       "packages/data",
       "packages/enums",
+      "packages/hooks",
       "packages/server",
       "packages/storybook",
       "packages/utils"
