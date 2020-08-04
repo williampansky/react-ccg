@@ -1,5 +1,7 @@
 import React from 'react';
 import { DatePicker } from 'antd';
+
+import IMAGES from '@ccg/images';
 // import { ABILITIES } from '@ccg/data';
 // import { exists } from '@ccg/utils';
 // import { CONFIG } from '@ccg/config';
@@ -7,7 +9,7 @@ import { DatePicker } from 'antd';
 // import { CompOne, CompTwo } from '@ccg/components';
 
 const GameWrapper = props => {
-  console.log(props);
+  console.log(IMAGES);
 
   return (
     <div className="App">
