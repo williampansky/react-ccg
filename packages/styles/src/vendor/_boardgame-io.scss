@@ -1,0 +1,37 @@
+.debug-panel {
+  .pane {
+    padding: 10px;
+  }
+
+  .events {
+    display: flex;
+    flex-flow: row wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+
+  // prettier-ignore
+  .events > button {
+    margin: 0 !important;
+    & + button { margin-left: 10px !important; }
+  }
+
+  .json {
+    font-size: 12px !important;
+    line-height: 1.1 !important;
+    overflow: hidden;
+  }
+
+  section > label {
+    color: white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: white;
+  }
+}

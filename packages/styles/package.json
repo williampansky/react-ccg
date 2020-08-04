@@ -1,0 +1,12 @@
+{
+  "name": "@ccg/styles",
+  "version": "1.0.0",
+  "homepage": "https://react-workspaces.github.io/react-workspaces-playground",
+  "main": "src/",
+  "dependencies": {},
+  "devDependencies": {
+    "cross-env": "6.0.3",
+    "node-sass": "^4.14.1"
+  },
+  "license": "MIT"
+}

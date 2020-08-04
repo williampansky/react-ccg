@@ -19,6 +19,7 @@
     "@ccg/enums": "1.0.0",
     "@ccg/hooks": "1.0.0",
     "@ccg/images": "1.0.0",
+    "@ccg/styles": "1.0.0",
     "@ccg/utils": "1.0.0",
     "@react-workspaces/react-scripts": "^3.3.0-alpha-08",
     "@reduxjs/toolkit": "^1.4.0",
