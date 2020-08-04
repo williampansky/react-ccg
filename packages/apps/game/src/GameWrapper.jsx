@@ -1,7 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { DatePicker } from 'antd';
 
-import IMAGES from '@ccg/images';
 // import { ABILITIES } from '@ccg/data';
 // import { exists } from '@ccg/utils';
 // import { CONFIG } from '@ccg/config';
@@ -9,11 +9,14 @@ import IMAGES from '@ccg/images';
 // import { CompOne, CompTwo } from '@ccg/components';
 
 const GameWrapper = props => {
-  console.log(IMAGES);
+  console.log(props);
+  const { MECHANICS_IMAGES } = useSelector(state => state.images);
+  console.log(MECHANICS_IMAGES);
 
   return (
     <div className="App">
       <header className="App-header">
+        <div>{/* <img src={MECHANICS_IMAGES} /> */}</div>
         <h1>
           <a
             className="App-link"
