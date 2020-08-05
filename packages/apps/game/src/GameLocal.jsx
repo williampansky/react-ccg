@@ -21,7 +21,7 @@ const Client = BoardgameClient({
   enhancer: REDUX_DEVTOOLS
 });
 
-class App extends React.Component {
+class GameLocal extends React.Component {
   state = {
     hasError: false,
     addressBarSize: 0,
@@ -112,4 +112,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default GameLocal;
