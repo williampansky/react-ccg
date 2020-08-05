@@ -3,9 +3,8 @@
   "private": true,
   "scripts": {
     "airtable": "node -r esm airtable.js",
-    "build:game-local": "yarn && yarn workspace @ccg/game build",
-    "start:app-multi": "yarn && yarn workspace @ccg/app-multi-comps start",
-    "start:game-local": "yarn && yarn workspace @ccg/game start",
+    "build:game": "yarn && yarn workspace @ccg/game build",
+    "start:game": "yarn && yarn workspace @ccg/game start",
     "start:storybook": "yarn && yarn workspace @ccg/storybook storybook",
     "start:server": "yarn && yarn workspace @ccg/server nodemon-extended",
     "test": "FORCE_COLOR=true lerna run lint && CI=true FORCE_COLOR=true lerna run test -- --coverage",

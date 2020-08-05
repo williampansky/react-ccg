@@ -1,22 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch } from 'react-router-dom';
+import { Layout } from 'antd';
 import RouteWithSubRoutes from './router/RouteWithSubRoutes';
 import ROUTES from './routes';
 
 const App = props => {
+  const { Content } = Layout;
   return (
-    <React.Fragment>
-      <header>header</header>
-      <main>
+    <Layout>
+      <Content>
         <Switch>
           {ROUTES.map((route, i) => (
             <RouteWithSubRoutes key={i} {...route} />
           ))}
         </Switch>
-      </main>
-      <footer>footer</footer>
-    </React.Fragment>
+      </Content>
+    </Layout>
   );
 };
 
