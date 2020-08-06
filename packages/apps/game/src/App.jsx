@@ -4,8 +4,7 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import { Layout } from 'antd';
 import RouteWithSubRoutes from './router/RouteWithSubRoutes';
 import ROUTES from './routes';
-import { PlaySingleplayer } from './pages';
-import GameLocal from './GameLocal';
+import GameLocal from './game/GameLocal';
 
 const App = props => {
   const playRoute = ROUTES.find(obj => obj.key === 'PLAY');

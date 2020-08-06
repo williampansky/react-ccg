@@ -1,5 +1,5 @@
 import React from 'react';
-import { Homepage, PlayPage, PlaySingleplayer } from './pages';
+import { Homepage, PlayPage } from './pages';
 
 const ROUTES = [
   {
@@ -44,7 +44,7 @@ const ROUTES = [
         visible: true,
         key: 'PLAY_SINGLEPLAYER',
         exact: true,
-        component: props => <PlaySingleplayer {...props} />
+        component: () => <h1>Play Singleplayer</h1>
       },
       {
         path: '/play/multiplayer',
