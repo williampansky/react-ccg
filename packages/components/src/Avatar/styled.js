@@ -1,34 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Avatar = props => {
-  const { heroImageSrc, heroName, placeholderImageSrc } = props;
-  return (
-    <StyledComponent
-      data-component="Avatar"
-      offsetCalc={'20px'}
-      ratioCalc={1.333333333}
-      sizeDesktop={'150px'}
-      sizeH={'120px'}
-    >
-      <div className={'avatar__position__block'} />
-      <picture className={'avatar__image__wrapper'} data-component="Avatar">
-        <img
-          alt={heroName}
-          className={'avatar__image'}
-          src={heroImageSrc}
-          role="presentation"
-        />
-      </picture>
-    </StyledComponent>
-  );
-};
-
-const StyledComponent = styled.div`
+export const Component = styled.div`
   display: block;
-  height: ${props => props.sizeH - props.offsetCalc};
-  width: ${props => props.sizeH - props.ratioCalc};
+  height: ${props => `calc(${props.sizeH} - ${props.offsetCalc})`};
+  width: ${props => `calc(${props.sizeH} / ${props.ratioCalc})`};
   position: relative;
 
   @media (min-width: 960px) {
@@ -108,11 +83,3 @@ const StyledComponent = styled.div`
     }
   }
 `;
-
-Avatar.propTypes = {
-  heroImageSrc: PropTypes.string.isRequired,
-  heroName: PropTypes.string.isRequired,
-  placeholderImageSrc: PropTypes.string
-};
-
-export default Avatar;

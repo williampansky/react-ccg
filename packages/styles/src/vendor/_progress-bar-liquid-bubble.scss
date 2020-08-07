@@ -1,5 +1,5 @@
 // @see https://codepen.io/junebug12851/pen/mJZNqN
-[data-component='PlayerHealthOrb'] {
+[data-component='HealthOrb'] {
   $baseSize: var(--player-health-size);
   $divisionAmount: var(--player-health-size-division);
   $progessSize: calc(#{$baseSize} / #{$divisionAmount});

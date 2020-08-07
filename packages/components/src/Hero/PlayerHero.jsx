@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { getHeroImage, getHeroName } from '@ccg/utils';
 import { useResponsive } from '@ccg/hooks';
-import { Avatar } from '@ccg/components';
+import { Avatar, HealthOrb } from '@ccg/components';
 
-const OpponentHero = props => {
+const PlayerHero = props => {
   const {
     G: { playerHero },
-    theirID,
+    yourID,
 
     abilitiesImageBase,
     abilitiesImageClose,
@@ -45,17 +45,14 @@ const OpponentHero = props => {
 
   return (
     <StyledComponent
-      data-component="OpponentHero"
+      data-component="PlayerHero"
       ratioCalc={1.333333333}
       sizeH={'var(--hero-height)'}
       sizeW={'150px'}
     >
       <Avatar
-        handlePlayerInteractionClick={e => console.log(e)}
-        heroImageSrc={getHeroImage(playerHero[theirID], 'AVATAR')}
-        heroName={getHeroName(playerHero[theirID])}
         parentComponent={parentComponent}
-        placeholderImageSrc={avatarPlaceholderImageSrc}
+        playerHero={playerHero[yourID]}
       />
 
       {/* {!isDesktop ? (
@@ -93,20 +90,13 @@ const OpponentHero = props => {
         <div className={'player__desktop__bar'}>Desktop Bar</div>
       ) : null}
 
-      {/* <footer className={'player__health'}>
-        {parentComponent === 'Opponent' ? (
-          <OpponentSkillsAroundOrb
-            costImageSrc={costGemImageSrc}
-            heroAbilities={heroAbilities}
-            heroSymbol={heroSymbol}
-          />
-        ) : null}
-        <PlayerHealthOrb
+      <footer className={'player__health'}>
+        <HealthOrb
           armorPoints={playerArmorPoints}
           currentHealth={playerHealthCurrent}
           totalHealth={playerHealthTotal}
         />
-      </footer> */}
+      </footer>
     </StyledComponent>
   );
 };
@@ -194,9 +184,9 @@ const StyledComponent = styled.div`
   }
 `;
 
-OpponentHero.propTypes = {};
+PlayerHero.propTypes = {};
 
-OpponentHero.defaultProps = {
+PlayerHero.defaultProps = {
   cardIsSelected: false,
   cardsInDeck: 0,
   cardsInHand: 0,
@@ -209,4 +199,4 @@ OpponentHero.defaultProps = {
   playerHealthTotal: 30
 };
 
-export default OpponentHero;
+export default PlayerHero;

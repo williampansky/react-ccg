@@ -6,7 +6,7 @@ import * as Styled from './styled';
 // import OpponentWrapper from './OpponentWrapper';
 // import PlayerWrapper from './PlayerWrapper';
 // import SelectedCardMobileModalWrapper from './SelectedCardMobileModalWrapper';
-import { Opponent } from '@ccg/components';
+import { Opponent, Player } from '@ccg/components';
 
 const Game = props => {
   // boardgame props
@@ -74,7 +74,13 @@ const Game = props => {
     <Styled.Container>
       {/* <MatchHistory G={G} ctx={ctx} /> */}
 
-      <Opponent G={G} ctx={ctx} moves={moves} theirID={theirID} />
+      <Opponent
+        G={G}
+        ctx={ctx}
+        moves={moves}
+        theirID={theirID}
+        parentComponent={'Opponent'}
+      />
 
       {/* <BoardWrapper
         G={G}
@@ -87,21 +93,13 @@ const Game = props => {
         }}
       /> */}
 
-      {/* <PlayerWrapper
+      <Player
         G={G}
         ctx={ctx}
         moves={moves}
-        playerID={yourID}
+        yourID={yourID}
         parentComponent={'Player'}
-        images={{
-          CARDS: CARDS,
-          SETS: SETS,
-          ABILITIES_ICON: ABILITIES_ICON,
-          ABILITIES_ICON_CLOSE: ABILITIES_ICON_CLOSE,
-          COST_GEM_IMAGE: COST_GEM_IMAGE,
-          PLACEHOLDER_IMAGE: PLACEHOLDER_IMAGE
-        }}
-      /> */}
+      />
 
       {/* <SelectedCardMobileModalWrapper
         G={G}

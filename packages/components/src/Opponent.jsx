@@ -28,26 +28,7 @@ const Opponent = props => {
         canBeAttackedByPlayer={playerCanBeAttackedByPlayer[theirID]}
         canBeAttackedBySpell={playerCanBeAttackedBySpell[theirID]}
       />
-
       <OpponentHero {...props} />
-
-      {/* <Hero
-        avatarPlaceholderImageSrc={avatarPlaceholderImageSrc}
-        cardIsSelected={cardIsSelected}
-        cardsInDeck={cardsInDeckCount}
-        cardsInHand={cardsInHandCount}
-        costGemImageSrc={costGemImageSrc}
-        actionPointsCurrent={actionPointsCurrent}
-        actionPointsTotal={actionPointsTotal}
-        heroAbilities={heroAbilities}
-        heroSymbol={heroSymbol}
-        parentComponent={parentComponent}
-        playerHealthCurrent={playerHealthCurrent}
-        playerHealthTotal={playerHealthTotal}
-        playerName={playerName}
-        playerId={theirID}
-        selectedCardContext={selectedCardContext}
-      /> */}
     </StyledComponent>
   );
 };
@@ -63,9 +44,12 @@ Opponent.propTypes = {
   G: PropTypes.object.isRequired,
   ctx: PropTypes.object.isRequired,
   moves: PropTypes.object.isRequired,
+  parentComponent: PropTypes.string,
   theirID: PropTypes.string.isRequired
 };
 
-Opponent.defaultProps = {};
+Opponent.defaultProps = {
+  parentComponent: 'Opponent'
+};
 
 export default Opponent;

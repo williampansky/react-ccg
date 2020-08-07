@@ -7,6 +7,20 @@ import App from './App';
 import './index.scss';
 import * as serviceWorker from './serviceWorker';
 
+if (process.env.NODE_ENV === 'development' && module.hot) {
+  module.hot.accept('./App', () => {
+    const App = require('./App').default;
+    ReactDOM.render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </BrowserRouter>,
+      document.getElementById('root')
+    );
+  });
+}
+
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>

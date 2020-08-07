@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { MECHANICS } from '@ccg/images';
+import { HEROS, MECHANICS } from '@ccg/images';
 
 let initialState = {
+  HERO_IMAGES: HEROS,
   MECHANICS_IMAGES: MECHANICS
 };
 
