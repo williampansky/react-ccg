@@ -4,3 +4,6 @@ export { default as getHeroImage } from './src/get-hero-image';
 export { default as removeSymbols } from './src/remove-symbols';
 export { default as replaceConstant } from './src/replace-constants';
 export { default as getPercentageChange } from './src/get-percentage-change';
+export { default as getMechanicImage } from './src/get-mechanic-image';
+export { default as getMinionInteractionImage } from './src/get-minion-interaction-image';
+export { default as getUiImage } from './src/get-ui-image';

@@ -6,7 +6,7 @@ import * as Styled from './styled';
 // import OpponentWrapper from './OpponentWrapper';
 // import PlayerWrapper from './PlayerWrapper';
 // import SelectedCardMobileModalWrapper from './SelectedCardMobileModalWrapper';
-import { Opponent, Player } from '@ccg/components';
+import { Board, Opponent, Player } from '@ccg/components';
 
 const Game = props => {
   // boardgame props
@@ -82,16 +82,7 @@ const Game = props => {
         parentComponent={'Opponent'}
       />
 
-      {/* <BoardWrapper
-        G={G}
-        ctx={ctx}
-        moves={moves}
-        theirID={theirID}
-        yourID={yourID}
-        images={{
-          MECHANICS: MECHANICS
-        }}
-      /> */}
+      <Board G={G} ctx={ctx} moves={moves} theirID={theirID} yourID={yourID} />
 
       <Player
         G={G}
