@@ -78,7 +78,7 @@ export const Component = styled.div`
     }
 
     @media (min-width: 960px) {
-      top: ${props => (props.parentComponent === 'Player' ? '-65px' : '25px')};
+      top: ${props => (props.parentComponent === 'Player' ? '-46px' : '25px')};
     }
   }
 
@@ -94,17 +94,16 @@ export const Component = styled.div`
       border-radius: 50%;
     }
   }
+`;
 
-  .avatar__info__wrapper {
-    margin: 10px 0;
-
-    h2 {
-      font-size: 16px;
-      margin: 0;
-    }
-
-    h2 span {
-      pointer-events: none;
+export const PlayerAvatar = styled.div`
+  @media (min-width: 960px) {
+    [data-component='Avatar'] {
+      position: fixed;
+      bottom: -100px;
+      left: 0;
+      height: 200px;
+      width: 200px;
     }
   }
 `;

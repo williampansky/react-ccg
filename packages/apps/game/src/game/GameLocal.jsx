@@ -2,7 +2,7 @@ import React from 'react';
 import { Client as BoardgameClient } from 'boardgame.io/react';
 import { Local } from 'boardgame.io/multiplayer';
 import { ReactCCG } from '@ccg/server';
-import Game from '.';
+import Game from './Game';
 import { CONFIG } from '@ccg/config';
 // import GameWrapper from './game-components/GameWrapper';
 // import GameLoader from './components/game-loader';

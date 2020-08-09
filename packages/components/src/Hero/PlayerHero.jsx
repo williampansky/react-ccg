@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import { getHeroImage, getHeroName } from '@ccg/utils';
 import { useResponsive } from '@ccg/hooks';
-import { Avatar, HealthOrb } from '@ccg/components';
+import { PlayerAvatar, PlayerHealthOrb } from '@ccg/components';
 import * as Styled from './styled';
 
 const PlayerHero = props => {
@@ -36,7 +36,7 @@ const PlayerHero = props => {
       sizeH={'var(--hero-height)'}
       sizeW={'150px'}
     >
-      <Avatar
+      <PlayerAvatar
         parentComponent={parentComponent}
         playerHero={playerHero[yourID]}
         playerName={playerName[yourID]}
@@ -76,7 +76,7 @@ const PlayerHero = props => {
       {isDesktop ? <div className={'player__desktop__bar'}></div> : null}
 
       <footer className={'player__health'}>
-        <HealthOrb
+        <PlayerHealthOrb
           armorPoints={playerArmorPoints}
           currentHealth={playerHealthCurrent}
           totalHealth={playerHealthTotal}

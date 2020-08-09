@@ -56,9 +56,9 @@ export const Component = styled.div`
     justify-content: center;
     position: relative;
 
-    div[data-component='PlayerHealthOrb'] {
+    /* div[data-component='PlayerHealthOrb'] {
       margin-right: calc(var(--class-skill-button-size) / -4.375);
-    }
+    } */
   }
 
   .player__fab {
