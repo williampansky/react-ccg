@@ -28,7 +28,6 @@ export const Component = styled.div`
   }
 
   .avatar__image__wrapper {
-    background: #111;
     border-radius: 50%;
     height: 100%;
     width: 100%;
@@ -38,6 +37,13 @@ export const Component = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
+    display: flex;
+    flex-flow: ${props =>
+      props.parentComponent === 'Player'
+        ? 'column nowrap'
+        : 'column-reverse nowrap'};
+    align-items: center;
+    justify-content: center;
 
     &:before,
     &:after {
@@ -58,15 +64,21 @@ export const Component = styled.div`
     }
 
     &:before {
-      border-top: 1px solid rgba(255, 255, 255, 0.165);
+      border-top: ${props =>
+        props.parentComponent === 'Player'
+          ? '1px solid rgba(255, 255, 255, 0.165)'
+          : '1px solid rgba(0, 0, 0, 0.275)'};
     }
 
     &:after {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.275);
+      border-bottom: ${props =>
+        props.parentComponent === 'Player'
+          ? '1px solid rgba(0, 0, 0, 0.275)'
+          : '1px solid rgba(255, 255, 255, 0.165)'};
     }
 
     @media (min-width: 960px) {
-      top: -25px;
+      top: ${props => (props.parentComponent === 'Player' ? '-65px' : '25px')};
     }
   }
 
@@ -80,6 +92,19 @@ export const Component = styled.div`
 
     @media (min-width: 960px) {
       border-radius: 50%;
+    }
+  }
+
+  .avatar__info__wrapper {
+    margin: 10px 0;
+
+    h2 {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    h2 span {
+      pointer-events: none;
     }
   }
 `;

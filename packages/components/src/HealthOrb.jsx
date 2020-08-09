@@ -8,7 +8,8 @@ import { usePrevious } from '@ccg/hooks';
 /**
  * @see https://codepen.io/junebug12851/pen/mJZNqN
  */
-const HealthOrb = ({ armorPoints, currentHealth, totalHealth }) => {
+const HealthOrb = props => {
+  const { armorPoints, currentHealth, parentComponent, totalHealth } = props;
   const [healthState, setHealthState] = useState(totalHealth);
   const previousHealth = usePrevious(healthState);
   const [colorClass, setColorClass] = useState('green');
@@ -53,6 +54,7 @@ const HealthOrb = ({ armorPoints, currentHealth, totalHealth }) => {
     <StyledComponent
       data-component="HealthOrb"
       orbSize={'var(--player-health-size)'}
+      parentComponent={parentComponent}
     >
       <div className={colorClass}>
         <div className="progress" ref={progressRef}>
@@ -99,6 +101,7 @@ const StyledComponent = styled.div`
   z-index: 0;
   position: relative;
   margin-right: calc(var(--class-skill-button-size) / -4.375);
+  top: ${props => (props.parentComponent === 'Player' ? '-50px' : '50px')};
 
   .player__health__orb__value {
     font-family: var(--font-family-card);

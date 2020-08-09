@@ -3,7 +3,7 @@ import { Client as BoardgameClient } from 'boardgame.io/react';
 import { Local } from 'boardgame.io/multiplayer';
 import { ReactCCG } from '@ccg/server';
 import Game from '.';
-// import { GAME_CONFIG } from '@ccg/config';
+import { CONFIG } from '@ccg/config';
 // import GameWrapper from './game-components/GameWrapper';
 // import GameLoader from './components/game-loader';
 
@@ -40,9 +40,9 @@ class GameLocal extends React.Component {
   }
 
   componentDidMount() {
-    // const {
-    //   devConfig: { autoCloseDebugPanel }
-    // } = GAME_CONFIG;
+    const {
+      DEV_CONFIG: { autoCloseDebugPanel }
+    } = CONFIG;
     const {
       location: { href }
     } = window;
@@ -67,17 +67,17 @@ class GameLocal extends React.Component {
     /**
      * Auto closes the Boardgame.io debug panel on refreshes.
      */
-    // if (autoCloseDebugPanel && typeof window !== 'undefined') {
-    //   setTimeout(() => {
-    //     window.dispatchEvent(
-    //       new KeyboardEvent('keypress', {
-    //         key: '.',
-    //         code: 'Period',
-    //         keyCode: 190
-    //       })
-    //     );
-    //   }, 100);
-    // }
+    if (autoCloseDebugPanel && typeof window !== 'undefined') {
+      setTimeout(() => {
+        window.dispatchEvent(
+          new KeyboardEvent('keypress', {
+            key: '.',
+            code: 'Period',
+            keyCode: 190
+          })
+        );
+      }, 100);
+    }
   }
 
   render() {

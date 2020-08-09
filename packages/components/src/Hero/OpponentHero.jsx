@@ -25,6 +25,8 @@ const OpponentHero = props => {
   return (
     <Styled.Component
       data-component="OpponentHero"
+      isDesktop={isDesktop}
+      parentComponent={parentComponent}
       ratioCalc={1.333333333}
       sizeH={'var(--hero-height)'}
       sizeW={'150px'}
@@ -65,9 +67,7 @@ const OpponentHero = props => {
         </header>
       ) : null} */}
 
-      {isDesktop ? (
-        <div className={'player__desktop__bar'}>Desktop Bar</div>
-      ) : null}
+      {isDesktop ? <div className={'player__desktop__bar'}></div> : null}
 
       <footer className={'player__health'}>
         {/* <OpponentSkillsAroundOrb
@@ -79,6 +79,7 @@ const OpponentHero = props => {
           armorPoints={playerArmorPoints}
           currentHealth={playerHealthCurrent}
           totalHealth={playerHealthTotal}
+          parentComponent={parentComponent}
         />
       </footer>
     </Styled.Component>

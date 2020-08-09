@@ -2,8 +2,15 @@ import styled from 'styled-components';
 
 export const Component = styled.div`
   align-items: stretch;
-  background: #111;
-  border-top: 1px solid rgba(255, 255, 255, 0.465);
+  background: ${props => (props.isDesktop ? 'transparent' : '#111')};
+  border-bottom: ${props =>
+    props.parentComponent === 'Player'
+      ? '0'
+      : '1px solid rgba(255, 255, 255, 0.465)'};
+  border-top: ${props =>
+    props.parentComponent === 'Player'
+      ? '1px solid rgba(255, 255, 255, 0.465)'
+      : '0'};
   box-sizing: content-box;
   display: flex;
   flex-flow: row nowrap;

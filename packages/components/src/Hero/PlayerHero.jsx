@@ -7,28 +7,12 @@ import * as Styled from './styled';
 
 const PlayerHero = props => {
   const {
-    G: { playerHero },
+    G: { playerHero, playerName },
     yourID,
-
-    abilitiesImageBase,
-    abilitiesImageClose,
-    avatarPlaceholderImageSrc,
-    cardIsSelected,
-    cardsInDeck,
-    cardsInHand,
-    costGemImageSrc,
-    actionPointsCurrent,
-    actionPointsTotal,
-    heroAbilities,
-    heroSymbol,
     parentComponent,
     playerArmorPoints,
-    playerDeck,
     playerHealthCurrent,
-    playerHealthTotal,
-    playerName,
-    playerId,
-    selectedCardInteractionContext
+    playerHealthTotal
   } = props;
 
   const { isDesktop } = useResponsive();
@@ -46,6 +30,8 @@ const PlayerHero = props => {
   return (
     <Styled.Component
       data-component="PlayerHero"
+      isDesktop={isDesktop}
+      parentComponent={parentComponent}
       ratioCalc={1.333333333}
       sizeH={'var(--hero-height)'}
       sizeW={'150px'}
@@ -53,6 +39,7 @@ const PlayerHero = props => {
       <Avatar
         parentComponent={parentComponent}
         playerHero={playerHero[yourID]}
+        playerName={playerName[yourID]}
       />
 
       {/* {!isDesktop ? (
@@ -86,15 +73,14 @@ const PlayerHero = props => {
         </header>
       ) : null} */}
 
-      {isDesktop ? (
-        <div className={'player__desktop__bar'}>Desktop Bar</div>
-      ) : null}
+      {isDesktop ? <div className={'player__desktop__bar'}></div> : null}
 
       <footer className={'player__health'}>
         <HealthOrb
           armorPoints={playerArmorPoints}
           currentHealth={playerHealthCurrent}
           totalHealth={playerHealthTotal}
+          parentComponent={parentComponent}
         />
       </footer>
     </Styled.Component>
