@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Component = styled.div`
   align-items: stretch;
-  background: ${props => (props.isDesktop ? 'transparent' : '#111')};
+  background: ${props => (props.isDesktop ? 'slategrey' : '#111')};
   border-bottom: ${props =>
     props.parentComponent === 'Player'
       ? '0'

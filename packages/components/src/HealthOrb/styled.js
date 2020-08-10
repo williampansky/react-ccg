@@ -44,7 +44,7 @@ export const Component = styled.div`
 
 export const PlayerHealthOrb = styled.div`
   @media (min-width: 960px) {
-    position: fixed;
+    position: absolute;
     bottom: -100px;
     right: 0;
 

@@ -99,7 +99,7 @@ export const Component = styled.div`
 export const PlayerAvatar = styled.div`
   @media (min-width: 960px) {
     [data-component='Avatar'] {
-      position: fixed;
+      position: absolute;
       bottom: -100px;
       left: 0;
       height: 200px;

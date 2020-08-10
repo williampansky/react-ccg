@@ -28,12 +28,14 @@ import selectedMinionObject from './state/selected-minion-object';
 import SERVER_CONFIG from './server.config';
 import spellObject from './state/spell-object';
 import hoveringTarget from './state/hovering-target';
+import boardIsActive from './state/board-is-active';
 
 export default {
   actionPoints: actionPoints.__DATA_MODEL,
   attackedMinionIndex: null,
   cardBack: cardBack.__DATA_MODEL,
   counts: counts.__DATA_MODEL,
+  boardIsActive: boardIsActive.__DATA_MODEL,
   hoveringCardIndex: hoveringCardIndex.__DATA_MODEL,
   hoveringTargetIndex: hoveringTarget.__DATA_MODEL,
   hoveringTargetObject: hoveringTarget.__DATA_MODEL,

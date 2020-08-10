@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { PLAYER_BOARDS, PLAY_TYPE, TYPE } from '@ccg/enums';
-// import { TheirBoard, YourBoard, CardPlayArea } from '@ccg/components';
+import { TheirBoard, YourBoard } from '@ccg/components';
 import * as Styled from './styled';
 import {
   getMechanicImage as gMI,
@@ -13,6 +13,7 @@ const Board = props => {
   const {
     G,
     G: {
+      boards,
       selectedCardPlayType,
       selectedCardType,
       selectedMinionObject,
@@ -21,9 +22,7 @@ const Board = props => {
     ctx,
     moves,
     moves: { playGlobalSpellCard },
-    theirBoard,
     theirID,
-    yourBoard,
     yourID,
     cardIsSelected,
     cardIsLocked,
@@ -72,30 +71,31 @@ const Board = props => {
 
   return (
     <Styled.Component data-component="Board">
-      {/* <TheirBoard
+      <TheirBoard
         G={G}
         ctx={ctx}
         moves={moves}
-        theirBoard={theirBoard}
+        theirBoard={boards[yourID]}
         theirID={theirID}
         yourID={yourID}
         playerBoard={PLAYER_BOARDS[2]}
         uiTooltipSrc={uiTooltipImage}
-      /> */}
+        theirBoardLength={boards[theirID].length}
+      />
 
-      {/* <YourBoard
+      <YourBoard
         G={G}
         ctx={ctx}
         moves={moves}
-        yourBoard={yourBoard}
+        yourBoard={boards[yourID]}
         yourID={yourID}
         playerBoard={PLAYER_BOARDS[1]}
         cardIsSelected={cardIsSelected}
         cardIsLocked={cardIsLocked}
         uiTooltipSrc={uiTooltipImage}
-        theirBoardLength={theirBoard.length}
+        theirBoardLength={boards[theirID].length}
         minionIsSelected={selectedMinionObject[yourID] ? true : false}
-      /> */}
+      />
 
       {/* <CardPlayArea
         active={
