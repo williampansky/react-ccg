@@ -25,10 +25,10 @@ import selectedCardInteractionContext from './state/selected-card-interaction-co
 import selectedCardObject from './state/selected-card-object';
 import selectedMinionIndex from './state/selected-minion-index';
 import selectedMinionObject from './state/selected-minion-object';
-import SERVER_CONFIG from './server.config';
 import spellObject from './state/spell-object';
 import hoveringTarget from './state/hovering-target';
 import boardIsActive from './state/board-is-active';
+import { CONFIG } from '@ccg/config';
 
 export default {
   actionPoints: actionPoints.__DATA_MODEL,
@@ -66,10 +66,9 @@ export default {
   selectedCardInteractionContext: selectedCardInteractionContext.__DATA_MODEL,
   selectedMinionIndex: selectedMinionIndex.__DATA_MODEL,
   selectedMinionObject: selectedMinionObject.__DATA_MODEL,
-  serverConfig: SERVER_CONFIG,
   spellObject: spellObject.__DATA_MODEL,
   turnOrder: ['0', '1'].sort(() => {
-    if (!SERVER_CONFIG.matchConfig.enableRandomTurnOrder) return ['0', '1'];
+    if (!CONFIG.MATCH_CONFIG.enableRandomTurnOrder) return ['0', '1'];
     return Math.random() - 0.5;
   }),
   winner: null,

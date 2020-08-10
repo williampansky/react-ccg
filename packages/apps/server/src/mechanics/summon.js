@@ -1,7 +1,8 @@
+import { CONFIG } from '@ccg/config';
 import createBoardSlotObject from '../creators/create-board-slot-object';
 
 const summonEntourageMinion = (G, ctx, cardId, entourageArray) => {
-  const { serverConfig, turnOrder } = G;
+  const { turnOrder } = G;
   const { currentPlayer, random } = ctx;
   const otherPlayer = turnOrder.find(p => p !== currentPlayer);
 
@@ -39,7 +40,7 @@ const summonEntourageMinion = (G, ctx, cardId, entourageArray) => {
       break; // eject
   }
 
-  // if (serverConfig.debugData.enableMechanics)
+  // if (CONFIG.DEBUG_DATA_CONFIG.enableMechanics)
   // initCardMechanics(G, ctx, slotObject, index);
 };
 

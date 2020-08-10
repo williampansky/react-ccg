@@ -4,7 +4,7 @@ export default {
   enableAttack: true,
   enableCost: false,
   enableHealth: true,
-  enableMechanics: true,
+  enableMechanics: false,
   enableRemoveCardFromHand: true,
   enableSet: true,
   enableSpellType: true,

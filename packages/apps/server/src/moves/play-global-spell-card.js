@@ -11,18 +11,18 @@ import selectedCardInteractionContext from '../state/selected-card-interaction-c
 import selectedCardObject from '../state/selected-card-object';
 import castGlobalSpell from '../spells/cast-global-spell';
 import logMessage from '../match-history/log-message';
+import { CONFIG } from '@ccg/config';
 
 const playGlobalSpellCard = (G, ctx, cost, id, set, uuid) => {
-  const { serverConfig } = G;
   const { currentPlayer } = ctx;
 
-  if (serverConfig.debugData.enableCost)
+  if (CONFIG.DEBUG_DATA_CONFIG.enableCost)
     actionPoints.subtract(G, currentPlayer, cost);
 
   castGlobalSpell(G, ctx, set, id);
   logMessage(G, ctx, 'playGlobalSpellCard');
 
-  if (serverConfig.debugData.enableRemoveCardFromHand) {
+  if (CONFIG.DEBUG_DATA_CONFIG.enableRemoveCardFromHand) {
     // move to your playerCards array
     copyCardToPlayedCards(G, currentPlayer, id);
     // and then remove card from your hand

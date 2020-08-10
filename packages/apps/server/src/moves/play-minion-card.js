@@ -13,6 +13,7 @@ import selectedCardInteractionContext from '../state/selected-card-interaction-c
 import selectedCardObject from '../state/selected-card-object';
 import handleBoons from '../boons/handle-boons';
 import logMessage from '../match-history/log-message';
+import { CONFIG } from '@ccg/config';
 
 /**
  * @param {object} G
@@ -21,7 +22,7 @@ import logMessage from '../match-history/log-message';
  * @param {number} index
  */
 const playMinionCard = (G, ctx, index) => {
-  const { selectedCardObject: selectedCardObj, serverConfig, turnOrder } = G;
+  const { selectedCardObject: selectedCardObj, turnOrder } = G;
   const { currentPlayer } = ctx;
   const otherPlayer = turnOrder.find(p => p !== currentPlayer);
   const { cost, id, race, uuid } = selectedCardObj[currentPlayer];
@@ -31,14 +32,14 @@ const playMinionCard = (G, ctx, index) => {
   boards.placeCardOnBoard(G, ctx, currentPlayer, slotObject, index);
 
   // subtract the card's cost from player's current actionPoints count
-  if (serverConfig.debugData.enableCost)
+  if (CONFIG.DEBUG_DATA_CONFIG.enableCost)
     actionPoints.subtract(G, currentPlayer, cost);
 
   // check and init any mechanics
-  if (serverConfig.debugData.enableMechanics)
+  if (CONFIG.DEBUG_DATA_CONFIG.enableMechanics)
     initCardMechanics(G, ctx, slotObject, index);
 
-  if (serverConfig.debugData.enableRemoveCardFromHand) {
+  if (CONFIG.DEBUG_DATA_CONFIG.enableRemoveCardFromHand) {
     // move to your playerCards array
     copyCardToPlayedCards(G, currentPlayer, id);
     // and then remove card from your hand

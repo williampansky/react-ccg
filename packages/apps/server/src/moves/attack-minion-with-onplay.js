@@ -19,12 +19,7 @@ import logMessage from '../match-history/log-message';
  * @param {number} index
  */
 const attackMinionWithOnPlay = (G, ctx, index) => {
-  const {
-    selectedCardObject: selectedCardObjectG,
-    serverConfig,
-    spellObject,
-    turnOrder
-  } = G;
+  const { selectedCardObject: selectedCardObjectG, spellObject, turnOrder } = G;
   const { currentPlayer } = ctx;
   const otherPlayer = turnOrder.find(p => p !== currentPlayer);
 

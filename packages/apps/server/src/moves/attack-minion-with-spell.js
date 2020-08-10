@@ -11,6 +11,7 @@ import handleCardPlayability from '../utils/handle-card-playability';
 import boards from '../state/boards';
 import deselectCard from './deselect-card';
 import logMessage from '../match-history/log-message';
+import { CONFIG } from '@ccg/config';
 
 /**
  * Interacts with a minion (index) via the current player's spellObject.
@@ -19,12 +20,7 @@ import logMessage from '../match-history/log-message';
  * @param {number} index
  */
 const attackMinionWithSpell = (G, ctx, index) => {
-  const {
-    selectedCardObject: selectedCardObjectG,
-    serverConfig,
-    spellObject,
-    turnOrder
-  } = G;
+  const { selectedCardObject: selectedCardObjectG, spellObject, turnOrder } = G;
   const { currentPlayer } = ctx;
   const otherPlayer = turnOrder.find(p => p !== currentPlayer);
 
@@ -73,10 +69,10 @@ const attackMinionWithSpell = (G, ctx, index) => {
   }
 
   // subtract the card's cost from player's current actionPoints count
-  if (serverConfig.debugData.enableCost)
+  if (CONFIG.DEBUG_DATA_CONFIG.enableCost)
     actionPoints.subtract(G, currentPlayer, CARD_OBJECT.cost);
 
-  if (serverConfig.debugData.enableRemoveCardFromHand) {
+  if (CONFIG.DEBUG_DATA_CONFIG.enableRemoveCardFromHand) {
     // move to your playerCards array
     copyCardToPlayedCards(G, currentPlayer, CARD_OBJECT.id);
     // and then remove card from your hand
