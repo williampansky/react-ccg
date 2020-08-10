@@ -75,7 +75,7 @@ const Board = props => {
         G={G}
         ctx={ctx}
         moves={moves}
-        theirBoard={boards[yourID]}
+        theirBoard={boards[theirID]}
         theirID={theirID}
         yourID={yourID}
         playerBoard={PLAYER_BOARDS[2]}
