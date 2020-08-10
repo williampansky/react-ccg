@@ -33,6 +33,7 @@ import {
   // YourMinionInteractions,
   // TheirMinionInteractions
 } from '@ccg/components';
+import SlotTargetingTooltip from './SlotTargetingTooltip';
 
 // board slot react methods
 import determineCardHoverSide from './determine-card-hover-side';
@@ -294,24 +295,6 @@ const BoardSlot = props => {
     isDead && killMinionCallback(index);
   }, [index, isDead, killMinionCallback]);
 
-  const handleTargetingTooltip = useCallback(
-    spellObj => {
-      if (!spellObj) return;
-      const { numberPrimary, numberSecondary, targetingArrowText } = spellObj;
-      return replaceConstant(
-        formatCardText(
-          targetingArrowText,
-          numberPrimary,
-          numberSecondary,
-          playerSpellDamage
-        )
-      );
-    },
-    [playerSpellDamage]
-  );
-
-  console.log(enableEntranceAnimations && slotIsNew);
-
   return (
     <Styled.Component
       canAttack={canAttack}
@@ -456,22 +439,13 @@ const BoardSlot = props => {
       )} */}
       {/* {slotObject && hasBoon && <Boon />} */}
 
-      {showTooltip ? (
-        <ReactTooltip
-          id={`${id}--${index}`}
-          place="top"
-          type="dark"
-          effect="solid"
-          multiline={true}
-        >
-          <p
-            className="text__value"
-            dangerouslySetInnerHTML={createMarkup(
-              handleTargetingTooltip(spellObject)
-            )}
-          />
-        </ReactTooltip>
-      ) : null}
+      <SlotTargetingTooltip
+        id={id}
+        index={index}
+        playerSpellDamage={playerSpellDamage}
+        showTooltip={showTooltip}
+        spellObject={spellObject}
+      />
 
       {/* visible minion component */}
       {slotObject ? (

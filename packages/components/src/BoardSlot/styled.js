@@ -50,3 +50,7 @@ export const Component = styled.div`
     }
   }
 `;
+
+export const TargetingTooltip = styled.div`
+  opacity: ${props => (props.showTooltip ? '1' : '0')};
+`;
