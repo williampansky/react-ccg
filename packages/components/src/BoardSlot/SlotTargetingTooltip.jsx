@@ -24,7 +24,11 @@ const SlotTargetingTooltip = props => {
   );
 
   return (
-    <Styled.TargetingTooltip showTooltip={showTooltip}>
+    <Styled.TargetingTooltip
+      data-component="TargetingTooltip"
+      data-show-tooltip={showTooltip}
+      showTooltip={showTooltip}
+    >
       <ReactTooltip
         effect="solid"
         id={`${id}--${index}`}

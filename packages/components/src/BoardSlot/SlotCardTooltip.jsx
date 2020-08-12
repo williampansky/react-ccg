@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import * as Styled from './styled';
+import { Card } from '@ccg/components';
 import {
   getCardBaseImage,
   getCardFlairImage,
@@ -65,7 +66,7 @@ const SlotCardTooltip = props => {
       className={[
         showTooltip ? 'uk-animation-scale-up' : '',
         tooltipSide === 'left'
-          ? 'uk-transform-origin-bottom-right'
+          ? 'show--left uk-transform-origin-bottom-right'
           : 'uk-transform-origin-bottom-left'
       ].join(' ')}
       data-component="SlotCardTooltip"
@@ -73,7 +74,7 @@ const SlotCardTooltip = props => {
       showTooltip={showTooltip}
       tooltipSide={tooltipSide}
     >
-      {/* <Card
+      <Card
         active={active}
         artist={artist}
         attack={attack}
@@ -107,7 +108,7 @@ const SlotCardTooltip = props => {
         targetingArrowText={targetingArrowText}
         text={text}
         type={type}
-      /> */}
+      />
 
       {showList ? (
         <ul>
@@ -152,7 +153,10 @@ const SlotCardTooltip = props => {
 };
 
 SlotCardTooltip.propTypes = {
-  minionRace: PropTypes.string
+  index: PropTypes.number,
+  slotObject: PropTypes.object,
+  showTooltip: PropTypes.bool,
+  tooltipSide: PropTypes.string
 };
 
 export default SlotCardTooltip;

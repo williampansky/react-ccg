@@ -1,3 +1,57 @@
+// prettier-ignore
+[data-component="SlotCardTooltip"] {
+                                  --card-height: 250px;
+  @include breakpoint('xlarge') { --card-height: 300px; }
+  @include breakpoint('hd')     { --card-height: 350px; }
+}
+
+[data-component='SlotCardTooltip'] {
+  animation-delay: 1200ms;
+  animation-duration: 200ms;
+  cursor: default;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: calc(var(--card-height) * -0.6);
+  top: calc(var(--card-height) * -0.8);
+  z-index: 1000;
+  @include display-flex(column nowrap, flex-start, flex-start);
+
+  &.show--left {
+    right: auto;
+    left: calc(var(--card-height) * -0.6);
+  }
+
+  @include breakpoint('xlarge') {
+    top: calc(var(--card-height) * -0.7);
+  }
+
+  @include breakpoint('hd') {
+    top: calc(var(--card-height) * -0.7);
+  }
+}
+
+[data-component='SlotCardTooltip'] {
+  ul {
+    margin-bottom: 0;
+    margin-left: calc(var(--card-height) / 1.315);
+    margin-right: 0;
+    margin-top: calc(var(--card-height) / 40);
+    max-width: calc(var(--card-height) / 1.8263249);
+    position: absolute;
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  &.show--left ul {
+    left: 0;
+    margin-left: calc(calc(var(--card-height) / 1.715) * -1);
+    margin-right: auto;
+    right: auto;
+  }
+}
+
 [data-component='SlotCardTooltip'] .mechanic__item {
   $bg: #333;
   background-color: $bg;
@@ -7,7 +61,6 @@
   border-radius: 4px;
   border: 2px solid mix(white, $bg, 20%);
   padding: 8px 10px 10px;
-  width: max-content;
 
   & + .mechanic__item {
     margin-top: calc(var(--card-height) / 55);
@@ -37,4 +90,18 @@
     background-color: $bg;
     border-color: mix(white, $bg, 60%);
   }
+}
+
+// prettier-ignore
+[data-component="SlotCardTooltip"] {
+  display: none;
+  @media (min-width: 960px) { display: flex; }
+}
+
+// prettier-ignore
+[data-component="SlotCardTooltip"] {
+  font-size: 10px;
+  @media (min-width: 1100px) { font-size: 11px; }
+  @media (min-width: 1200px) { font-size: 12px; }
+  @media (min-width: 1360px) { font-size: 13px; }
 }

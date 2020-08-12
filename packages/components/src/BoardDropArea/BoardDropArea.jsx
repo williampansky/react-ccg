@@ -19,9 +19,9 @@ const BoardDropArea = props => {
 };
 
 BoardDropArea.propTypes = {
-  areaIsAlone: PropTypes.bool.isRequired,
-  cantDropMinion: PropTypes.bool.isRequired,
-  boardIsActive: PropTypes.bool.isRequired,
+  areaIsAlone: PropTypes.bool,
+  cantDropMinion: PropTypes.bool,
+  boardIsActive: PropTypes.bool,
   index: PropTypes.number,
   onClick: PropTypes.func
 };

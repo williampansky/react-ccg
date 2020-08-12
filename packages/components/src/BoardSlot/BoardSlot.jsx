@@ -310,6 +310,7 @@ const BoardSlot = props => {
       minionClass={getMinionRaceClass(race)}
       willExpire={willExpire}
       data-can-attack={canAttack}
+      data-is-attacking={isAttacking}
       data-can-be-attacked={handleCanBeAttackedAttr()}
       data-component="BoardSlot"
       data-for={`${id}--${index}`}

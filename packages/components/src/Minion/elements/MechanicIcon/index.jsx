@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import styles from './styles.module.scss';
 
 const MechanicIcon = props => {
+  const { MECHANICS_IMAGES: img } = useSelector(s => s.images);
   const {
     hasBoon,
     hasBoonSrc,
@@ -18,14 +20,6 @@ const MechanicIcon = props => {
     willExpireIn
   } = props;
 
-  function getDataLength() {
-    let num = 0;
-    if (hasOnDeath) num = num + 1;
-    if (hasDoubleAttack) num = num + 1;
-    if (hasPoison) num = num + 1;
-    return num;
-  }
-
   if (willExpire) {
     return (
       <div
@@ -40,31 +34,31 @@ const MechanicIcon = props => {
   } else if (hasBoon) {
     return (
       <div className={styles['minion__mechanics']}>
-        <img alt="hasBoon" src={hasBoonSrc} />
+        <img alt="hasBoon" src={img['BOON.png']} />
       </div>
     );
   } else if (hasOnDeath) {
     return (
       <div className={styles['minion__mechanics']}>
-        <img alt="hasOnDeath" src={hasOnDeath} />
+        <img alt="hasOnDeath" src={img['ON_DEATH.png']} />
       </div>
     );
   } else if (hasEventListener) {
     return (
       <div className={styles['minion__mechanics']}>
-        <img alt="hasEventListener" src={hasEventListenerSrc} />
+        <img alt="hasEventListener" src={img['EVENT.png']} />
       </div>
     );
   } else if (hasPoison) {
     return (
       <div className={styles['minion__mechanics']}>
-        <img alt="hasPoison" src={hasPoisonSrc} />
+        <img alt="hasPoison" src={img['POISON.png']} />
       </div>
     );
   } else if (hasDoubleAttack) {
     return (
       <div className={styles['minion__mechanics']}>
-        <img alt="hasDoubleAttack" src={hasDoubleAttackSrc} />
+        <img alt="hasDoubleAttack" src={img['DOUBLE_ATTACK.png']} />
       </div>
     );
   } else {
@@ -74,15 +68,10 @@ const MechanicIcon = props => {
 
 MechanicIcon.propTypes = {
   hasBoon: PropTypes.bool,
-  hasBoonSrc: PropTypes.string,
   hasDoubleAttack: PropTypes.bool,
-  hasDoubleAttackSrc: PropTypes.string,
   hasEventListener: PropTypes.bool,
-  hasEventListenerSrc: PropTypes.string,
   hasOnDeath: PropTypes.bool,
-  hasOnDeathSrc: PropTypes.string,
-  hasPoison: PropTypes.bool,
-  hasPoisonSrc: PropTypes.string
+  hasPoison: PropTypes.bool
 };
 
 MechanicIcon.defaultProps = {

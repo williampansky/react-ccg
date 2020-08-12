@@ -3,13 +3,7 @@
   border-radius: var(--minion-border-radius);
   outline: none;
   pointer-events: none;
-  // opacity: 0;
   position: absolute;
-
-  // height: 110%;
-  // width: 110%;
-  // @include position-absolute(-5%, 0, 0, -5%, 0);
-
   height: 100%;
   width: 100%;
   @include position-absolute(0, 0, 0, 0, 0);
@@ -27,10 +21,6 @@
     transform: scale(1.35);
   }
 
-  // .board__slot--is-attacking & {
-  //   transform: scale(1.15);
-  // }
-
   .minion__race--location & {
     $percent: 35%; // 50% - $percent
     border-bottom-left-radius: calc(var(--minion-border-radius) - #{$percent});
@@ -47,7 +37,6 @@
 
   // add pseudo elem to minion for hover fx
   & + [data-component='Minion']:after {
-    // background: mix(white, transparent, 25%);
     box-shadow: inset 0px 0px 0px 0px white;
     border-radius: var(--minion-border-radius);
     // content: '';
@@ -115,10 +104,10 @@
 // prettier-ignore
 .minion__interaction {
   & + [data-component='Minion']:after {
-    .board__slot--is-attacking & { opacity: 0; }
+    [data-component='BoardSlot'][data-is-attacking='true'] & { opacity: 0; }
   }
 
   & + [data-component='Minion'] > [data-file='Minion/image'] {
-    .board__slot--is-attacking & { border-color: white; }
+    [data-component='BoardSlot'][data-is-attacking='true'] & { border-color: white; }
   }
 }

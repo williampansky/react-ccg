@@ -1,6 +1,7 @@
 export { default as Opponent } from './src/Opponent';
 export { default as OpponentInteractionLayer } from './src/OpponentInteractionLayer';
 export { default as Player } from './src/Player';
+export { Card } from './src/Card';
 export { BoardSlot } from './src/BoardSlot';
 export { Minion } from './src/Minion';
 export { AppIcon } from './src/AppIcon';

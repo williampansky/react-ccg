@@ -1,5 +1,5 @@
-export default {
-  xsmall: 410,
+const BREAKPOINTS_CONFIG = {
+  xsmall: 410 || '410px',
   small: 640,
   medium: 960,
   large: 1200,
@@ -8,3 +8,5 @@ export default {
   hd: 1920,
   imac: 5120
 };
+
+export default BREAKPOINTS_CONFIG;
