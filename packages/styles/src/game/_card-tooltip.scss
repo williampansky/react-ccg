@@ -21,13 +21,23 @@
     right: auto;
     left: calc(var(--card-height) * -0.6);
   }
+}
 
-  @include breakpoint('xlarge') {
-    top: calc(var(--card-height) * -0.7);
+[data-component='SlotCardTooltip'] {
+  .card__shadow {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    left: -50px;
+    z-index: 0;
+    opacity: 0.2675;
   }
 
-  @include breakpoint('hd') {
-    top: calc(var(--card-height) * -0.7);
+  &.show--left .card__shadow {
+    left: 5px;
   }
 }
 

@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import * as Styled from './styled';
 import { Card } from '@ccg/components';
 import {
@@ -53,6 +54,8 @@ const SlotCardTooltip = props => {
     tooltipSide
   } = props;
 
+  const { CARD_ASSET_IMAGES } = useSelector(s => s.images);
+
   const showList = useCallback(() => {
     if (mechanics && mechanics.length) return true;
     else if (isBuffed) return true;
@@ -74,6 +77,13 @@ const SlotCardTooltip = props => {
       showTooltip={showTooltip}
       tooltipSide={tooltipSide}
     >
+      <img
+        alt=""
+        className="card__shadow"
+        role="presentation"
+        src={CARD_ASSET_IMAGES['CARD_SHADOW.png']}
+      />
+
       <Card
         active={active}
         artist={artist}
