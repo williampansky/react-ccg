@@ -33,6 +33,7 @@ import {
   // YourMinionInteractions,
   // TheirMinionInteractions
 } from '@ccg/components';
+import SlotCardTooltip from './SlotCardTooltip';
 import SlotTargetingTooltip from './SlotTargetingTooltip';
 
 // board slot react methods
@@ -366,15 +367,6 @@ const BoardSlot = props => {
         />
       )} */}
 
-      {/* minion box shadows */}
-      {/* <div
-        className={[
-          'minion__shadows',
-          slotObject && race ? getMinionRaceClass(race) : ''
-        ].join(' ')}
-        data-component="minion-shadows"
-      /> */}
-
       {/* visible minion component */}
       <Minion
         active={active}
@@ -439,6 +431,7 @@ const BoardSlot = props => {
       )} */}
       {/* {slotObject && hasBoon && <Boon />} */}
 
+      {/* card tooltip */}
       <SlotTargetingTooltip
         id={id}
         index={index}
@@ -447,108 +440,13 @@ const BoardSlot = props => {
         spellObject={spellObject}
       />
 
-      {/* visible minion component */}
-      {slotObject ? (
-        <div
-          className={[
-            'board__slot--card-tooltip',
-            determineCardHoverSide(boardLength, index) === 'left'
-              ? 'show--left uk-transform-origin-bottom-right'
-              : 'uk-transform-origin-bottom-left',
-            determineIfCardHover() ? 'uk-animation-scale-up' : ''
-          ].join(' ')}
-          id={`${id}--${index}`}
-        >
-          {/* <Card
-            active={active}
-            artist={artist}
-            attack={attack}
-            collectible={collectible}
-            cost={cost}
-            deckBuilder={false}
-            elite={elite}
-            entourage={entourage}
-            flavor={flavor}
-            health={health}
-            howToEarn={howToEarn}
-            howToEarnGolden={howToEarnGolden}
-            id={id}
-            imageBaseSrc={getCardBaseImage(rarity, type)}
-            imageFlairSrc={getCardFlairImage(id, set, isGolden)}
-            isGolden={isGolden}
-            mechanics={mechanics}
-            name={name}
-            numberOvercharge={numberOvercharge}
-            numberPrimary={numberPrimary}
-            numberRNG={numberRNG}
-            numberSecondary={numberSecondary}
-            onClick={() => {}}
-            playContext={playContext}
-            playRequirements={playRequirements}
-            playType={playType}
-            race={race}
-            rarity={rarity}
-            set={set}
-            sounds={sounds}
-            targetingArrowText={targetingArrowText}
-            text={text}
-            type={type}
-          /> */}
-          {
-            ((mechanics && mechanics.length) || isBuffed,
-            isDisabled || willExpire ? (
-              <ul className="tooltip__mechanics__wrapper">
-                {mechanics.map((m, i) => {
-                  return (
-                    <li className="mechanic__item" key={m}>
-                      <div className="mechanic__item-title">
-                        {replaceConstant(m)}
-                      </div>
-                      <div className="mechanic__item-description">
-                        {getMechanicShortDescription(m)}
-                      </div>
-                    </li>
-                  );
-                })}
-                {/* @TODO: integrate buff tooltip listings */}
-                {/* https://github.com/williampansky/react-ccg/issues/5 */}
-                {/* {isBuffed && (
-                  <li className="mechanic__item is--buff">
-                    <div className="mechanic__item-title">
-                      {replaceConstant('%DISABLE%')}
-                    </div>
-                    <div className="mechanic__item-description">
-                      {getMechanicShortDescription('%DISABLE%')}
-                    </div>
-                  </li>
-                )} */}
-                {isDisabled && (
-                  <li className="mechanic__item is--debuff">
-                    <div className="mechanic__item-title">
-                      {replaceConstant('%DISABLE%')}
-                    </div>
-                    <div className="mechanic__item-description">
-                      {getMechanicShortDescription('%DISABLE%')}
-                    </div>
-                  </li>
-                )}
-                {willExpire && (
-                  <li className="mechanic__item is--debuff">
-                    <div className="mechanic__item-title">
-                      {replaceConstant('%EXPIRATION%')}
-                    </div>
-                    <div className="mechanic__item-description">
-                      {getMechanicShortDescription('%EXPIRATION%')}
-                      <span>{` `}</span>
-                      <span>Will activate in {willExpireIn} turn(s).</span>
-                    </div>
-                  </li>
-                )}
-              </ul>
-            ) : null)
-          }
-        </div>
-      ) : null}
+      {/* card tooltip */}
+      <SlotCardTooltip
+        index={index}
+        slotObject={slotObject}
+        showTooltip={determineIfCardHover()}
+        tooltipSide={determineCardHoverSide(boardLength, index)}
+      />
     </Styled.Component>
   );
 };

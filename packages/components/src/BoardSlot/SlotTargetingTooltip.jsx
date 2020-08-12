@@ -26,11 +26,11 @@ const SlotTargetingTooltip = props => {
   return (
     <Styled.TargetingTooltip showTooltip={showTooltip}>
       <ReactTooltip
+        effect="solid"
         id={`${id}--${index}`}
+        multiline={true}
         place="top"
         type="dark"
-        effect="solid"
-        multiline={true}
       >
         <p
           className="text__value"
@@ -43,8 +43,12 @@ const SlotTargetingTooltip = props => {
   );
 };
 
-SlotTargetingTooltip.propTypes = {};
-
-SlotTargetingTooltip.defaultProps = {};
+SlotTargetingTooltip.propTypes = {
+  id: PropTypes.string,
+  index: PropTypes.number,
+  playerSpellDamage: PropTypes.number,
+  showTooltip: PropTypes.bool,
+  spellObject: PropTypes.object
+};
 
 export default SlotTargetingTooltip;

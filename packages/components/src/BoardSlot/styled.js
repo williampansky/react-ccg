@@ -54,3 +54,94 @@ export const Component = styled.div`
 export const TargetingTooltip = styled.div`
   opacity: ${props => (props.showTooltip ? '1' : '0')};
 `;
+
+/* prettier-ignore */
+export const SlotCardTooltip = styled.div`
+                               --card-height: 250px;
+  @media (min-width: 1200px) { --card-height: 300px; }
+  @media (min-width: 1920px) { --card-height: 350px; }
+
+  align-items: flex-start;
+  animation-delay: 1200ms;
+  animation-duration: 200ms;
+  cursor: default;
+  display: none;
+  @media (min-width: 960px) { display: flex; }
+  flex-flow: column nowrap;
+  font-size: 10px;
+  @media (min-width: 1100px) { font-size: 11px; }
+  @media (min-width: 1200px) { font-size: 12px; }
+  @media (min-width: 1360px) { font-size: 13px; }
+  justify-content: flex-start;
+  left: ${props => props.tooltipSide === 'left'
+    ? 'calc(var(--card-height) * -0.6)'
+    : 'auto'
+  };
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: ${props => props.tooltipSide === 'left'
+    ? 'auto'
+    : 'calc(var(--card-height) * -0.6)'
+  };
+  top: calc(var(--card-height) * -0.8);
+  @media (min-width: 1200px) { top: calc(var(--card-height) * -0.7); }
+  z-index: 1000;
+
+  ul {
+    left: ${props => props.tooltipSide === 'left' ? '0' : 'auto'};
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-left: ${props => props.tooltipSide === 'left'
+      ? 'calc(calc(var(--card-height) / 1.715) * -1)'
+      : 'calc(var(--card-height) / 1.315)'
+    };
+    margin-right: ${props => props.tooltipSide === 'left' ? 'auto' : '0'};
+    margin-top: calc(var(--card-height) / 40);
+    max-width: calc(var(--card-height) / 1.8263249);
+    padding: 0;
+    position: absolute;
+    right: ${props => props.tooltipSide === 'left' ? 'auto' : '0'};
+    width: 100%;
+  }
+
+  .mechanic__item {
+    $bg: #333;
+    background-color: $bg;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 4px;
+    border: 2px solid mix(white, $bg, 20%);
+    padding: 8px 10px 10px;
+
+    & + .mechanic__item {
+      margin-top: calc(var(--card-height) / 55);
+    }
+
+    .mechanic__item-title {
+      color: mix(white, $bg, 80%);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 0.75em;
+      font-weight: 900;
+      line-height: 1.1;
+      margin: 0 0 0.25em;
+      text-transform: uppercase;
+    }
+
+    .mechanic__item-description {
+      color: mix(white, $bg, 100%);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 1em;
+      font-weight: normal;
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+    }
+
+    &.is--debuff {
+      $bg: rgb(100, 20, 20);
+      background-color: $bg;
+      border-color: mix(white, $bg, 60%);
+    }
+  }
+`;

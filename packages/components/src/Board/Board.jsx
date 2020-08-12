@@ -75,26 +75,26 @@ const Board = props => {
         G={G}
         ctx={ctx}
         moves={moves}
-        theirBoard={boards[theirID]}
-        theirID={theirID}
-        yourID={yourID}
         playerBoard={PLAYER_BOARDS[2]}
-        uiTooltipSrc={uiTooltipImage}
+        theirBoard={boards[theirID]}
         theirBoardLength={boards[theirID].length}
+        theirID={theirID}
+        uiTooltipSrc={uiTooltipImage}
+        yourID={yourID}
       />
 
       <YourBoard
         G={G}
         ctx={ctx}
         moves={moves}
+        cardIsLocked={cardIsLocked}
+        cardIsSelected={cardIsSelected}
+        minionIsSelected={selectedMinionObject[yourID] ? true : false}
+        playerBoard={PLAYER_BOARDS[1]}
+        theirBoardLength={boards[theirID].length}
+        uiTooltipSrc={uiTooltipImage}
         yourBoard={boards[yourID]}
         yourID={yourID}
-        playerBoard={PLAYER_BOARDS[1]}
-        cardIsSelected={cardIsSelected}
-        cardIsLocked={cardIsLocked}
-        uiTooltipSrc={uiTooltipImage}
-        theirBoardLength={boards[theirID].length}
-        minionIsSelected={selectedMinionObject[yourID] ? true : false}
       />
 
       {/* <CardPlayArea
