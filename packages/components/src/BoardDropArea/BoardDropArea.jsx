@@ -6,11 +6,10 @@ const BoardDropArea = props => {
   const { areaIsAlone, cantDropMinion, boardIsActive, index, onClick } = props;
   return (
     <Styled.Component
-      areaIndex={index}
-      areaIsAlone={areaIsAlone}
-      boardIsActive={boardIsActive}
-      cantDropMinion={cantDropMinion}
       data-component="BoardDropArea"
+      data-area-is-alone={areaIsAlone}
+      data-board-is-active={boardIsActive}
+      data-cant-drop-minion={cantDropMinion}
       data-index={index}
       onMouseUp={onClick}
       role="button"

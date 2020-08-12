@@ -104,44 +104,4 @@ export const SlotCardTooltip = styled.div`
     right: ${props => props.tooltipSide === 'left' ? 'auto' : '0'};
     width: 100%;
   }
-
-  .mechanic__item {
-    $bg: #333;
-    background-color: $bg;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 4px;
-    border: 2px solid mix(white, $bg, 20%);
-    padding: 8px 10px 10px;
-
-    & + .mechanic__item {
-      margin-top: calc(var(--card-height) / 55);
-    }
-
-    .mechanic__item-title {
-      color: mix(white, $bg, 80%);
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 0.75em;
-      font-weight: 900;
-      line-height: 1.1;
-      margin: 0 0 0.25em;
-      text-transform: uppercase;
-    }
-
-    .mechanic__item-description {
-      color: mix(white, $bg, 100%);
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 1em;
-      font-weight: normal;
-      line-height: 1.1;
-      letter-spacing: -0.015em;
-    }
-
-    &.is--debuff {
-      $bg: rgb(100, 20, 20);
-      background-color: $bg;
-      border-color: mix(white, $bg, 60%);
-    }
-  }
 `;

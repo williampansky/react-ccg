@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { CONFIG } from '@ccg/config';
 
 export const Component = styled.div`
   align-items: center;
@@ -14,7 +15,7 @@ export const Component = styled.div`
   z-index: 0;
   position: relative;
   margin-right: calc(var(--class-skill-button-size) / -4.375);
-  top: ${props => (props.parentComponent === 'Player' ? '-50px' : '50px')};
+  top: ${props => (props.parentComponent === 'Player' ? '0' : '50px')};
 
   .player__health__orb__value {
     font-family: var(--font-family-card);
@@ -43,13 +44,14 @@ export const Component = styled.div`
 `;
 
 export const PlayerHealthOrb = styled.div`
-  @media (min-width: 960px) {
+  @media (min-width: ${CONFIG.BREAKPOINTS_CONFIG.large}px) {
     position: absolute;
     bottom: -100px;
     right: 0;
 
     [data-component='HealthOrb'] {
       font-size: 60px;
+      top: -50px;
     }
 
     [data-component='HealthOrb'] .progress {

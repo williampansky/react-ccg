@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { CONFIG } from '@ccg/config';
 
 export const Component = styled.div`
   display: block;
@@ -6,7 +7,7 @@ export const Component = styled.div`
   width: ${props => `calc(${props.sizeH} / ${props.ratioCalc})`};
   position: relative;
 
-  @media (min-width: 960px) {
+  @media (min-width: ${CONFIG.BREAKPOINTS_CONFIG.medium}px) {
     border-radius: 50%;
     height: ${props => props.sizeDesktop};
     width: ${props => props.sizeDesktop};
@@ -21,7 +22,7 @@ export const Component = styled.div`
     height: ${props => props.sizeH - props.offsetCalc};
     width: ${props => props.sizeH - props.ratioCalc};
 
-    @media (min-width: 960px) {
+    @media (min-width: ${CONFIG.BREAKPOINTS_CONFIG.medium}px) {
       height: ${props => props.sizeDesktop};
       width: ${props => props.sizeDesktop};
     }
@@ -58,7 +59,7 @@ export const Component = styled.div`
       pointer-events: none;
       z-index: 2;
 
-      @media (min-width: 960px) {
+      @media (min-width: ${CONFIG.BREAKPOINTS_CONFIG.medium}px) {
         border-radius: 50%;
       }
     }
@@ -77,7 +78,11 @@ export const Component = styled.div`
           : '1px solid rgba(255, 255, 255, 0.165)'};
     }
 
-    @media (min-width: 960px) {
+    @media (min-width: ${CONFIG.BREAKPOINTS_CONFIG.medium}px) {
+      top: ${props => (props.parentComponent === 'Player' ? '-25px' : '25px')};
+    }
+
+    @media (min-width: ${CONFIG.BREAKPOINTS_CONFIG.large}px) {
       top: ${props => (props.parentComponent === 'Player' ? '-46px' : '25px')};
     }
   }
@@ -90,14 +95,14 @@ export const Component = styled.div`
     position: relative;
     z-index: 1;
 
-    @media (min-width: 960px) {
+    @media (min-width: ${CONFIG.BREAKPOINTS_CONFIG.medium}px) {
       border-radius: 50%;
     }
   }
 `;
 
 export const PlayerAvatar = styled.div`
-  @media (min-width: 960px) {
+  @media (min-width: ${CONFIG.BREAKPOINTS_CONFIG.large}px) {
     [data-component='Avatar'] {
       position: absolute;
       bottom: -100px;

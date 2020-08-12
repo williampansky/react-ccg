@@ -1,37 +1,78 @@
-.drop-area {
+[data-component='BoardDropArea'] {
   align-items: center;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px dashed rgba(255, 255, 255, 0.25);
+  border: 0px dashed rgba(255, 255, 255, 0.25);
   box-sizing: border-box;
   color: white;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  min-height: 150px;
+  min-width: 0;
   opacity: 0;
   pointer-events: none;
   position: relative;
   user-select: none;
   width: 0;
   overflow: hidden;
-  transition: all 200ms ease-in-out;
   height: 100%;
+  transition: all 200ms ease-in-out;
+  outline: none;
+
+  &[data-area-is-alone='true'] {
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    display: none;
+  }
+
+  @media (min-width: 960px) {
+    width: 30px;
+  }
 }
 
-.board-is-active.drop-area {
+.board--is-active[data-component='BoardDropArea'] {
   cursor: pointer;
   pointer-events: auto;
   width: 1%;
+  margin: 0;
   opacity: 1;
 
-  &.area-is-alone {
-    width: 3.5%;
+  & + div,
+  & + div [data-component*='minion-interactions'] {
+    pointer-events: none;
   }
 
-  &:hover {
+  &[data-area-is-alone='true'] {
+    width: 100%;
+    height: 80%;
+    margin: 0;
+    display: block;
+    // background: red;
+    // opacity: 1;
+    // transition: none;
+  }
+
+  @media (max-width: 959px) {
     background: rgba(255, 255, 255, 0.25);
-    border-color: rgba(255, 255, 255, 0.925);
+    border: 1px dashed rgba(255, 255, 255, 0.925);
+    min-width: 7.5%;
     width: 7.5%;
+  }
+
+  @media (min-width: 960px) {
+    width: 30px;
+    max-width: none;
+    opacity: 0;
+    z-index: 9000;
+
+    &[data-area-is-alone='true']:hover {
+      // background: rgba(255, 255, 255, 0.25);
+      // border-color: rgba(255, 255, 255, 0.925);
+      width: calc(calc(var(--minion-height) / 1.25) + 50px);
+    }
   }
 
   @keyframes ants {
@@ -39,8 +80,13 @@
       background-position: 100%;
     }
   }
+
+  &[data-cant-drop-minion='true'] {
+    cursor: default;
+    pointer-events: none;
+  }
 }
 
-.spell-slot ~ .board-is-active .drop-area {
-  opacity: 0;
+[data-your-board-length='7'] [data-component='BoardDropArea'][data-index='7'] {
+  display: none;
 }
