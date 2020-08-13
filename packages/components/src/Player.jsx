@@ -2,15 +2,18 @@ import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useResponsive } from '@ccg/hooks';
-import { PlayerHero } from '@ccg/components';
+import { Hand, PlayerHero } from '@ccg/components';
 
 const Player = props => {
   const {
+    G,
+    G: { players, playerSpellDamage, selectedCardIndex, selectedCardObject },
+    ctx,
+    moves: { hoverCard, deselectCard, initTargetedCard, selectCard },
     abilitiesImageBase,
     abilitiesImageClose,
     avatarPlaceholderImageSrc,
     cardsInDeckCount,
-    cardsInHandArray,
     cardsInHandCount,
     costGemImageSrc,
     deselectCardFunction,
@@ -28,16 +31,14 @@ const Player = props => {
     selectCardContextFunction,
     handleCardHoverFunction,
     handleInitTargetedCardFunction,
-    selectedCardObject,
-    selectedCardIndex,
     selectedCardUuid,
-    yourId,
+    yourID,
     parentComponent,
-    selectedCardInteractionContext,
-    playerSpellDamage
+    selectedCardInteractionContext
   } = props;
 
   const { isDesktop } = useResponsive();
+  const cardsInHandArray = players[yourID].hand;
 
   const handleCardInteractionClick = useCallback(
     (cardObject, index) => {
@@ -49,7 +50,7 @@ const Player = props => {
   );
 
   return (
-    <StyledComponent
+    <div
       className={[
         'player',
         selectedCardInteractionContext ? 'disable-interaction' : ''
@@ -63,33 +64,30 @@ const Player = props => {
 
       <PlayerHero {...props} />
 
-      {/* <Hand
+      <Hand
         cardsInHand={cardsInHandArray}
-        deselectCardFunction={deselectCardFunction}
-        selectCardFunction={selectCardFunction}
+        deselectCardFunction={() => deselectCard()}
+        selectCardFunction={(obj, idx) => selectCard(obj, idx)}
         handleCardInteractionClick={handleCardInteractionClick}
-        imagesDataCards={imagesDataCards}
-        imagesDataSets={imagesDataSets}
-        selectedCardObject={selectedCardObject}
-        selectedCardUuid={selectedCardUuid}
+        selectedCardObject={selectedCardObject[yourID]}
+        selectedCardUuid={
+          selectedCardObject[yourID] && selectedCardObject[yourID].uuid
+        }
         selectedCardInteractionContext={selectedCardInteractionContext}
         disableInteraction={selectedCardInteractionContext ? true : false}
         isDesktop={isDesktop}
-        handleCardHoverFunction={handleCardHoverFunction}
+        handleCardHoverFunction={idx => hoverCard(idx)}
         selectCardContextFunction={selectCardContextFunction}
-        yourId={yourId}
-        playerSpellDamage={playerSpellDamage}
-        selectedCardIndex={selectedCardIndex}
-        handleInitTargetedCardFunction={handleInitTargetedCardFunction}
-      /> */}
-    </StyledComponent>
+        yourID={yourID}
+        playerSpellDamage={playerSpellDamage[yourID]}
+        selectedCardIndex={selectedCardIndex[yourID]}
+        handleInitTargetedCardFunction={(obj, idx) =>
+          initTargetedCard(obj, idx)
+        }
+      />
+    </div>
   );
 };
-
-const StyledComponent = styled.div`
-  background: var(--board-theirPlayerArea-background-color);
-  box-sizing: border-box;
-`;
 
 Player.propTypes = {
   G: PropTypes.object.isRequired,

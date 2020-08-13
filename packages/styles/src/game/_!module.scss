@@ -2,9 +2,11 @@
 @import 'cards-wrapper';
 @import 'avatar';
 @import 'player__info';
-@import 'boards';
+@import 'Player';
+@import 'player__info';
+@import 'Boards';
 @import 'BoardSlot';
-@import 'board-drop-area';
+@import 'BoardDropArea';
 @import 'minion-interaction';
 @import 'opponent-interaction';
 @import 'card-tooltip';

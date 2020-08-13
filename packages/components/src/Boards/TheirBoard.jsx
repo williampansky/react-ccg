@@ -90,6 +90,7 @@ const TheirBoard = props => {
   return (
     <div
       className="player__board their__board"
+      data-component="Boards/TheirBoard"
       data-board={PLAYER_BOARDS[2]}
       data-board-id={theirID}
       data-board-length={theirBoardArray.length}

@@ -50,10 +50,11 @@ const YourBoard = props => {
   return (
     <Styled.Component
       cardIsLocked={cardIsLocked}
+      className="player__board your__board"
       data-board-id={yourID}
       data-board-length={yourBoard.length}
       data-board={PLAYER_BOARDS[1]}
-      data-component="YourBoard"
+      data-component="Boards/YourBoard"
       data-their-board-length={theirBoardLength}
       data-your-board-length={yourBoard.length}
     >
