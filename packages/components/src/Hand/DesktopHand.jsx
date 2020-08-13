@@ -35,6 +35,15 @@ const DesktopHand = props => {
   );
 
   // Returns fitting styles for dragged/idle items
+  /**
+   *
+   * @param {boolean} isDown
+   * @param {boolean} isDragging
+   * @param {boolean} isHovered
+   * @param {number} curIndex current index of card
+   * @param {number} x coordinate
+   * @param {number} y coordinate
+   */
   const fn = (
     isDown,
     isDragging,
@@ -43,7 +52,7 @@ const DesktopHand = props => {
     x = 0,
     y = 0
   ) => index => {
-    const logMatch = true;
+    const logMatch = false;
     const disableRotation = false;
     const hoverOffsetY = -160;
     const match = curIndex === index;
