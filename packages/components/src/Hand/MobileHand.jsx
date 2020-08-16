@@ -9,12 +9,12 @@ const Hand = props => {
   const {
     cardsInHand,
     deselectCardFunction,
-    handleCardInteractionClick,
-    selectedCardObject,
-    selectedCardUuid,
-    selectedCardInteractionContext,
     disableInteraction,
-    isDesktop
+    isDesktop,
+    moves: { deselectCard, selectCard },
+    selectedCardInteractionContext,
+    selectedCardObject,
+    selectedCardUuid
   } = props;
 
   const [trayIsExpanded, setTrayIsExpanded] = useState(false);
@@ -63,6 +63,14 @@ const Hand = props => {
     selectedCardInteractionContext === null && setTrayIsExpanded(false);
   }, [selectedCardInteractionContext]);
 
+  const handleCardInteractionClick = useCallback(
+    (cardObject, index) => {
+      if (selectedCardUuid) return deselectCard();
+      else return selectCard(cardObject, index);
+    },
+    [deselectCard, selectedCardUuid, selectCard]
+  );
+
   return (
     <animated.div
       className={[
@@ -98,12 +106,12 @@ const Hand = props => {
                 cardUuid={uuid}
                 disableInteraction={disableInteraction}
                 handleCardInteractionClick={handleCardInteractionClick}
+                isDesktop={isDesktop}
                 key={uuid}
+                numberOfCardsInHand={cardsInHand.length}
                 selectedCardUuid={selectedCardUuid}
                 slotIndex={index}
                 trayIsExpanded={trayIsExpanded}
-                numberOfCardsInHand={cardsInHand.length}
-                isDesktop={isDesktop}
               />
             );
           })

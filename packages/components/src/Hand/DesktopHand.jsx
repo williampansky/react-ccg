@@ -11,13 +11,9 @@ import { PLAY_TYPE, TYPE } from '@ccg/enums';
 
 const DesktopHand = props => {
   const {
+    G,
+    moves: { hoverCard, deselectCard, initTargetedCard, selectCard },
     cardsInHand: items,
-    deselectCardFunction,
-    selectCardFunction,
-    // handleCardInteractionClick,
-    // handleCardHoverFunction,
-    // selectCardContextFunction,
-    handleInitTargetedCardFunction,
     selectedCardObject,
     selectedCardIndex,
     selectedCardUuid,
@@ -411,7 +407,7 @@ const DesktopHand = props => {
           y <= -100
         ) {
           if (selectedCardObject === null) return;
-          handleInitTargetedCardFunction(selectedCardObject, curIndex);
+          initTargetedCard(selectedCardObject, curIndex);
         } else {
           setSprings(
             fn(down, dragging, active, curIndex, first ? 0 : x, first ? 0 : y)
@@ -463,19 +459,17 @@ const DesktopHand = props => {
   const handleMouseDown = useCallback(
     (e, bool, i) => {
       e.preventDefault();
-      if (bool) {
-        selectCardFunction(items[i], i);
-      }
+      if (bool) return selectCard(items[i], i);
     },
-    [items, selectCardFunction]
+    [items, selectCard]
   );
 
   const handleMouseUp = useCallback(
     e => {
       e.preventDefault();
-      deselectCardFunction();
+      return deselectCard();
     },
-    [deselectCardFunction]
+    [deselectCard]
   );
 
   return (
@@ -559,8 +553,6 @@ const DesktopHand = props => {
                   {...bind(i, isPlayable, playType, type)}
                   key={`HandSlot_${i}`}
                   data-card-id={id}
-                  // data-hand-slot={i}
-                  // data-hand-order={order.current.indexOf(i)}
                   style={{
                     zIndex,
                     display: 'block',
@@ -592,7 +584,6 @@ const DesktopHand = props => {
                     cardImageFlairSrc={getCardFlairImage(id, set, isGolden)}
                     cardObject={items[i]}
                     cardUuid={uuid}
-                    // handleCardInteractionClick={handleCardInteractionClick}
                     isDesktop={isDesktop}
                     isEnhanced={isEnhanced}
                     isPlayable={isPlayable}
@@ -615,30 +606,15 @@ const DesktopHand = props => {
 
 DesktopHand.propTypes = {
   cardsInHand: PropTypes.array,
-  deselectCardFunction: PropTypes.func.isRequired,
-  // handleCardHoverFunction: PropTypes.func.isRequired,
-  // handleCardInteractionClick: PropTypes.func.isRequired,
+  G: PropTypes.object.isRequired,
   isDesktop: PropTypes.bool.isRequired,
-  // selectCardContextFunction: PropTypes.func.isRequired,
-  selectCardFunction: PropTypes.func.isRequired,
+  moves: PropTypes.object.isRequired,
   selectedCardObject: PropTypes.object,
   selectedCardUuid: PropTypes.string
 };
 
 DesktopHand.defaultProps = {
   cardsInHand: [],
-  deselectCardFunction: () => {
-    console.error('deselectCardFunction() provided as a defaultProp');
-  },
-  // handleCardHoverFunction: () => {
-  //   console.error('handleCardHoverFunction() provided as a defaultProp');
-  // },
-  // selectCardContextFunction: () => {
-  //   console.error('selectCardContextFunction() provided as a defaultProp');
-  // },
-  selectCardFunction: () => {
-    console.error('selectCardFunction() provided as a defaultProp');
-  },
   selectedCardObject: null,
   selectedCardUuid: null
 };

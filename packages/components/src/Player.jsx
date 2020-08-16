@@ -8,46 +8,17 @@ const Player = props => {
   const {
     G,
     G: { players, playerSpellDamage, selectedCardIndex, selectedCardObject },
-    ctx,
-    moves: { hoverCard, deselectCard, initTargetedCard, selectCard },
-    abilitiesImageBase,
-    abilitiesImageClose,
-    avatarPlaceholderImageSrc,
-    cardsInDeckCount,
-    cardsInHandCount,
-    costGemImageSrc,
-    deselectCardFunction,
-    actionPointsCurrent,
-    actionPointsTotal,
-    heroAbilities,
-    heroSymbol,
-    imagesDataCards,
-    imagesDataSets,
-    playerDeck,
-    playerHealthCurrent,
-    playerHealthTotal,
-    playerName,
-    selectCardFunction,
-    selectCardContextFunction,
-    handleCardHoverFunction,
-    handleInitTargetedCardFunction,
-    selectedCardUuid,
-    yourID,
+    moves,
     parentComponent,
-    selectedCardInteractionContext
+    selectCardContextFunction,
+    selectedCardInteractionContext,
+    yourID
   } = props;
 
   const { isDesktop } = useResponsive();
   const cardsInHandArray = players[yourID].hand;
-
-  const handleCardInteractionClick = useCallback(
-    (cardObject, index) => {
-      if (selectedCardUuid) return console.log('deselect');
-      else return selectCardFunction(cardObject, index);
-      // else if (cardIsPlayable) return selectCardFunction(cardObject, index);
-    },
-    [selectedCardUuid, selectCardFunction]
-  );
+  const selectedCardObj = selectedCardObject[yourID];
+  const selectedCardUuid = selectedCardObj && selectedCardObj.uuid;
 
   return (
     <div
@@ -66,24 +37,17 @@ const Player = props => {
 
       <Hand
         cardsInHand={cardsInHandArray}
-        deselectCardFunction={() => deselectCard()}
-        selectCardFunction={(obj, idx) => selectCard(obj, idx)}
-        handleCardInteractionClick={handleCardInteractionClick}
-        selectedCardObject={selectedCardObject[yourID]}
-        selectedCardUuid={
-          selectedCardObject[yourID] && selectedCardObject[yourID].uuid
-        }
-        selectedCardInteractionContext={selectedCardInteractionContext}
         disableInteraction={selectedCardInteractionContext ? true : false}
+        G={G}
         isDesktop={isDesktop}
-        handleCardHoverFunction={idx => hoverCard(idx)}
-        selectCardContextFunction={selectCardContextFunction}
-        yourID={yourID}
+        moves={moves}
         playerSpellDamage={playerSpellDamage[yourID]}
+        selectCardContextFunction={selectCardContextFunction}
         selectedCardIndex={selectedCardIndex[yourID]}
-        handleInitTargetedCardFunction={(obj, idx) =>
-          initTargetedCard(obj, idx)
-        }
+        selectedCardInteractionContext={selectedCardInteractionContext}
+        selectedCardObject={selectedCardObject[yourID]}
+        selectedCardUuid={selectedCardUuid}
+        yourID={yourID}
       />
     </div>
   );
