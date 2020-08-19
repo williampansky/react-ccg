@@ -16,22 +16,22 @@ import {
   createMarkup
 } from '@ccg/utils';
 import {
-  Minion
-  // Boon,
-  // Bubble,
-  // WillExpire,
-  // isHidden,
-  // BulwarkBackground,
-  // BulwarkForeground,
-  // Disabled,
-  // DoubleAttack,
-  // Elite,
-  // Hidden,
-  // Poison,
-  // Card,
-  // WillDieOverlay,
-  // YourMinionInteractions,
-  // TheirMinionInteractions
+  Minion,
+  Boon,
+  Bubble,
+  WillExpire,
+  isHidden,
+  BulwarkBackground,
+  BulwarkForeground,
+  Disabled,
+  DoubleAttack,
+  Elite,
+  Hidden,
+  Poison,
+  Card,
+  WillDieOverlay,
+  YourMinionInteractions,
+  TheirMinionInteractions
 } from '@ccg/components';
 import SlotCardTooltip from './SlotCardTooltip';
 import SlotTargetingTooltip from './SlotTargetingTooltip';
@@ -314,9 +314,11 @@ const BoardSlot = props => {
       data-can-be-attacked={handleCanBeAttackedAttr()}
       data-component="BoardSlot"
       data-for={`${id}--${index}`}
+      data-has-boon={hasBoon}
       data-has-bulwark={hasBulwark}
       data-is-empty={slotObject === null}
       data-is-new={enableEntranceAnimations && slotIsNew}
+      data-minion-race={replaceConstant(race)}
       data-slot={index}
       data-tip={spellObject ? true : false}
       data-will-expire={willExpire}
@@ -327,26 +329,26 @@ const BoardSlot = props => {
       {/* {slotObject && debugSlotIsNew ? <Bubble /> : null} */}
 
       {/* mechanics (above minion) */}
-      {/* {slotObject && (
+      {slotObject && (
         <WillDieOverlay
           activeState={willDie}
           isAttacking={isAttacking}
-          willDieSrc={
-            board === PLAYER_BOARDS[1] ? willDieYourSrc : willDieTheirSrc
-          }
+          // willDieSrc={
+          //   board === PLAYER_BOARDS[1] ? willDieYourSrc : willDieTheirSrc
+          // }
         />
-      )} */}
-      {/* {slotObject && hasBubble && <Bubble />} */}
-      {/* {slotObject && isHidden && <Hidden />} */}
-      {/* {slotObject && hasBulwark && (
+      )}
+      {slotObject && hasBubble && <Bubble />}
+      {slotObject && isHidden && <Hidden />}
+      {slotObject && hasBulwark && (
         <BulwarkForeground
           imgSrc={getMechanicImage('BULWARK_FOREGROUND.png')}
         />
-      )} */}
+      )}
       {/* {slotObject && <Disabled active={isDisabled} src={isDisabledSrc} />} */}
 
       {/* minion interactions */}
-      {/* {board === PLAYER_BOARDS[1] ? (
+      {board === PLAYER_BOARDS[1] ? (
         <YourMinionInteractions {...props} />
       ) : (
         <TheirMinionInteractions
@@ -366,7 +368,7 @@ const BoardSlot = props => {
           slotObject={slotObject}
           {...props}
         />
-      )} */}
+      )}
 
       {/* visible minion component */}
       <Minion
@@ -424,13 +426,13 @@ const BoardSlot = props => {
       />
 
       {/* mechanics (behind minion) */}
-      {/* {slotObject && hasBulwark && (
+      {slotObject && hasBulwark && (
         <BulwarkBackground
           imgSrc={getMechanicImage('BULWARK_BACKGROUND.png')}
           race={race}
         />
-      )} */}
-      {/* {slotObject && hasBoon && <Boon />} */}
+      )}
+      {slotObject && hasBoon && <Boon />}
 
       {/* card tooltip */}
       <SlotTargetingTooltip

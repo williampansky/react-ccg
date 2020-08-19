@@ -2,8 +2,8 @@ import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSpring, animated } from 'react-spring';
 import { INTERACTIONS } from '@ccg/images';
-import { RACE } from '@ccg/enums/src';
-import { getMinionInteractionImage } from '@ccg/utils/src';
+import { RACE } from '@ccg/enums';
+import { getMinionInteractionImage } from '@ccg/utils';
 
 export default function CanBeAttackedBySpell(props) {
   const {

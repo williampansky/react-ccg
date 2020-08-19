@@ -81,6 +81,8 @@ const Board = props => {
         theirID={theirID}
         uiTooltipSrc={uiTooltipImage}
         yourID={yourID}
+        mechanicImages={mechImages}
+        interactionImages={intImages}
       />
 
       <YourBoard
@@ -95,6 +97,8 @@ const Board = props => {
         uiTooltipSrc={uiTooltipImage}
         yourBoard={boards[yourID]}
         yourID={yourID}
+        mechanicImages={mechImages}
+        interactionImages={intImages}
       />
 
       {/* <CardPlayArea

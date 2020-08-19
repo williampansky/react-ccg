@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSpring, animated } from 'react-spring';
 import { INTERACTIONS } from '@ccg/images';
-import { getMinionInteractionImage } from '@ccg/utils/src';
+import { getMinionInteractionImage } from '@ccg/utils';
 
 export default function CanAttack(props) {
   const {

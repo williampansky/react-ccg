@@ -7,24 +7,30 @@ import { Hand, PlayerHero } from '@ccg/components';
 const Player = props => {
   const {
     G,
-    G: { players, playerSpellDamage, selectedCardIndex, selectedCardObject },
+    G: {
+      players,
+      playerSpellDamage,
+      selectedCardIndex,
+      selectedCardInteractionContext,
+      selectedCardObject
+    },
     moves,
     parentComponent,
-    selectCardContextFunction,
-    selectedCardInteractionContext,
     yourID
   } = props;
 
   const { isDesktop } = useResponsive();
   const cardsInHandArray = players[yourID].hand;
+  const disableInteraction = selectedCardInteractionContext[yourID];
   const selectedCardObj = selectedCardObject[yourID];
   const selectedCardUuid = selectedCardObj && selectedCardObj.uuid;
+  const selectedCardIntCtx = selectedCardInteractionContext[yourID];
 
   return (
     <div
       className={[
         'player',
-        selectedCardInteractionContext ? 'disable-interaction' : ''
+        selectedCardIntCtx ? 'disable-interaction' : ''
       ].join(' ')}
       data-component={parentComponent}
     >
@@ -37,14 +43,13 @@ const Player = props => {
 
       <Hand
         cardsInHand={cardsInHandArray}
-        disableInteraction={selectedCardInteractionContext ? true : false}
+        disableInteraction={disableInteraction ? true : false}
         G={G}
         isDesktop={isDesktop}
         moves={moves}
         playerSpellDamage={playerSpellDamage[yourID]}
-        selectCardContextFunction={selectCardContextFunction}
         selectedCardIndex={selectedCardIndex[yourID]}
-        selectedCardInteractionContext={selectedCardInteractionContext}
+        selectedCardInteractionContext={selectedCardIntCtx}
         selectedCardObject={selectedCardObject[yourID]}
         selectedCardUuid={selectedCardUuid}
         yourID={yourID}

@@ -21,3 +21,38 @@ export {
   DesktopInteractionLayer,
   MobileInteractionLayer
 } from './src/CardInteractionLayer';
+export {
+  Boon,
+  Bubble,
+  BulwarkBackground,
+  BulwarkForeground,
+  Disabled,
+  DoubleAttack,
+  Elite,
+  Hidden,
+  OnDeath,
+  Poison,
+  WillExpire
+} from './src/minion-mechanics';
+export {
+  CanAttack,
+  CanBeBuffed,
+  CanBeHealed,
+  CanBeAttackedByMinion,
+  CanBeAttackedByOnPlay,
+  CanBeAttackedByPlayer,
+  CanBeAttackedBySpell,
+  CanBeDebuffed,
+  CanBeExpired,
+  CanBeReturned,
+  CanBeSacrificed,
+  CanBeStolen,
+  CanReceiveBubble,
+  CanReceiveBulwark,
+  CanReceiveDoubleAttack,
+  CanReceiveStampede,
+  IsAttacking,
+  TheirMinionInteractions,
+  WillDieOverlay,
+  YourMinionInteractions
+} from './src/minion-interactions';

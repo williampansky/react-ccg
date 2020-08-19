@@ -12,7 +12,7 @@
   transition-property: box-shadow, opacity, transform;
   @include position-absolute(0, 0, 0, 0, 1);
 
-  .minion__race--location & {
+  [data-minion-race='Location'] & {
     $percent: 35%; // 50% - $percent
     border-bottom-left-radius: calc(var(--minion-border-radius) - #{$percent});
     border-bottom-right-radius: calc(var(--minion-border-radius) - #{$percent});
