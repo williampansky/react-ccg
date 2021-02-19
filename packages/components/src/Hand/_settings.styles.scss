@@ -1,0 +1,8 @@
+$CloseButton--Size:               40px;
+$CloseButton--Spacing:            calc(calc(var(--card-height) / 10) * 2);
+$CloseButton--Background_Color:   var(--board-yourHand-background-color);
+$CloseButton--Icon-Color:         white;
+
+// slot debugging
+$SlotBlocks--Show_Drag_Spots:     false;
+$SlotBlocks--Show_Hover_Spots:    false;

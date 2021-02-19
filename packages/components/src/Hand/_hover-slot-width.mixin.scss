@@ -1,0 +1,10 @@
+// Adjusts the invisible interactive block of a card's hover area
+@mixin hoverSlotWidth($length, $height: 2.5, $division: 2.25) {
+  &[data-length='#{$length}'] .hover__slot__block,
+  &[data-length='#{$length}'] .drag__slot__block {
+    height: calc(var(--card-height) / #{$height});
+    width: calc(
+      calc(var(--card-height) / var(--card-width-division)) / #{$division}
+    );
+  }
+}
