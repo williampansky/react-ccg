@@ -1,0 +1,9 @@
+# Prettier Code Formatting Ignore
+# @see https://prettier.io/docs/en/ignore.html
+
+# Ignore artifacts:
+build
+coverage
+
+# Ignore SCSS settings files; allowing for a more readable spacing
+_settings.styles.scss
