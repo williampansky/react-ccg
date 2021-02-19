@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { PLAYER_BOARDS, PLAY_TYPE, TYPE } from '@ccg/enums';
 import { TheirBoard, YourBoard } from '@ccg/components';
-import * as Styled from './styled';
 import {
   getMechanicImage as gMI,
   getMinionInteractionImage as gII,
@@ -70,7 +69,7 @@ const Board = props => {
   const uiTooltipImage = getUiImage('UI_Tooltip.png');
 
   return (
-    <Styled.Component data-component="Board">
+    <div className={['board'].join(' ')} data-component="Board">
       <TheirBoard
         G={G}
         ctx={ctx}
@@ -108,7 +107,7 @@ const Board = props => {
         }
         onMouseUp={() => handleCardPlay()}
       /> */}
-    </Styled.Component>
+    </div>
   );
 };
 

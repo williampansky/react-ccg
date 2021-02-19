@@ -1,7 +1,8 @@
-.player {
-  background: var(--board-yourPlayerArea-background-color);
+.opponent {
+  background: var(--board-theirPlayerArea-background-color);
   box-sizing: border-box;
   display: none;
+  z-index: 1;
 
   @include breakpoint('medium') {
     display: block;

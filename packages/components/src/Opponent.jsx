@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { OpponentHero, OpponentInteractionLayer } from '@ccg/components';
 
 const Opponent = props => {
@@ -14,11 +13,12 @@ const Opponent = props => {
     },
     ctx,
     moves,
-    theirID
+    theirID,
+    parentComponent
   } = props;
 
   return (
-    <StyledComponent data-component="Opponent">
+    <div className={['opponent'].join(' ')} data-component={parentComponent}>
       <OpponentInteractionLayer
         G={G}
         ctx={ctx}
@@ -29,16 +29,9 @@ const Opponent = props => {
         canBeAttackedBySpell={playerCanBeAttackedBySpell[theirID]}
       />
       <OpponentHero {...props} />
-    </StyledComponent>
+    </div>
   );
 };
-
-const StyledComponent = styled.div`
-  background: var(--board-theirPlayerArea-background-color);
-  box-sizing: border-box;
-  position: relative;
-  z-index: 1;
-`;
 
 Opponent.propTypes = {
   G: PropTypes.object.isRequired,

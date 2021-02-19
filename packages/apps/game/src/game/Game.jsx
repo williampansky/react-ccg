@@ -5,7 +5,6 @@ import * as Styled from './styled';
 // import BoardWrapper from './BoardWrapper';
 // import OpponentWrapper from './OpponentWrapper';
 // import PlayerWrapper from './PlayerWrapper';
-// import SelectedCardMobileModalWrapper from './SelectedCardMobileModalWrapper';
 import { Board, Opponent, Player } from '@ccg/components';
 
 const Game = props => {
@@ -91,17 +90,6 @@ const Game = props => {
         yourID={yourID}
         parentComponent={'Player'}
       />
-
-      {/* <SelectedCardMobileModalWrapper
-        G={G}
-        ctx={ctx}
-        moves={moves}
-        playerID={yourID}
-        images={{
-          CARDS: CARDS,
-          SETS: SETS
-        }}
-      /> */}
     </Styled.Container>
   );
 };

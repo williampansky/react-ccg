@@ -14,13 +14,9 @@ export { OpponentHero, PlayerHero } from './src/Hero';
 export { TheirBoard, YourBoard } from './src/Boards';
 export { CardPlayArea } from './src/CardPlayArea';
 export { DeckSlotItem } from './src/DeckSlotItem';
-export { Hand, DesktopHand, MobileHand } from './src/Hand';
-export { HandSlot, DesktopHandSlot, MobileHandSlot } from './src/HandSlot';
-export {
-  CardInteractionLayer,
-  DesktopInteractionLayer,
-  MobileInteractionLayer
-} from './src/CardInteractionLayer';
+export { Hand } from './src/Hand';
+export { HandSlot } from './src/HandSlot';
+export { CardInteractionLayer } from './src/CardInteractionLayer';
 export {
   Boon,
   Bubble,
