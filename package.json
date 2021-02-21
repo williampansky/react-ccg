@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "airtable": "node -r esm airtable.js",
+    "airtable": "node --trace-warnings -r esm airtable.js",
     "build:game": "yarn && yarn workspace @ccg/game build",
     "start:game": "yarn && yarn workspace @ccg/game start",
     "start:storybook": "yarn && yarn workspace @ccg/storybook storybook",
